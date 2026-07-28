@@ -334,7 +334,11 @@ h2.title em{font-style:italic;font-weight:300;color:var(--accent)}
 .work{padding:clamp(6.5rem,12vw,11rem) 0;position:relative;overflow:hidden;background:transparent;
   border-top:1px solid var(--line)}
 .work .wrap{position:relative;z-index:2}
-.work-grid{margin-top:3.2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.4rem,3vw,2.2rem);align-items:start}
+/* The gallery breaks out wider than the text column so the photographs read as
+   photographs. Width is capped against the viewport so it never overflows. */
+.work-grid{margin-top:3.2rem;display:grid;grid-template-columns:repeat(3,1fr);
+  gap:clamp(1.2rem,2.4vw,2rem);align-items:start;
+  width:min(1360px,calc(100vw - 3rem));margin-left:50%;transform:translateX(-50%)}
 .piece{position:relative;border-radius:4px;padding:clamp(.9rem,2vw,1.3rem) clamp(.9rem,2vw,1.3rem) 1.1rem;
   transform:rotate(var(--tilt,0));box-shadow:var(--lift-2);
   transition:transform .7s var(--ease-lux),box-shadow .7s var(--ease-lux)}
@@ -344,7 +348,12 @@ h2.title em{font-style:italic;font-weight:300;color:var(--accent)}
 .piece.p3{--tilt:-.6deg;background:#fff;border:1px solid var(--line)}
 .piece.p3 figcaption span{color:var(--magenta-ink)}
 .piece .frame{position:relative;border-radius:4px;overflow:hidden}
-.piece img{width:100%;aspect-ratio:5/4;object-fit:cover;
+/* The source photos are near-square (1.28 / 1.29 / 1.11). A 5:4 frame cropped
+   them into wide strips; a square frame shows almost the whole picture.
+   `height:auto` is REQUIRED: the width/height HTML attributes map to CSS
+   presentational hints, and a used `height` beats `aspect-ratio` — without this
+   the frames render at the images' full intrinsic height. */
+.piece img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;
   transition:transform 1.5s var(--ease-lux),filter 1.5s var(--ease-lux);filter:saturate(.96)}
 .piece:hover img{transform:scale(1.045);filter:saturate(1.03)}
 .piece .frame::after{content:"";position:absolute;inset:0;
