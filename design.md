@@ -66,8 +66,8 @@ instead of plain white.
 
 ### The brand palette
 
-The four brand swatches. These are **graphic** colors — bars, dots, rules, the
-sun, the swatch wall.
+The four brand swatches. These are **graphic** colors — bars, dots, rules and
+the sun.
 
 | Token | Hex | |
 |---|---|---|
@@ -157,9 +157,8 @@ baseline like book type. Anything columnar — `.hours`, `.facts`, `.voucher dd`
 
 - **Container** `.wrap` — `max-width:1180px`, `padding:0 6vw`.
 - **Section rhythm** — `clamp(5rem, 10vw, 8.5rem)` vertical.
-- **Radii** — cards/pieces `4px`, buttons `2px`. The sun and swatch chips are the
-  only round forms.
-- **Grids** — menu 4→2 (≤980)→1 (≤540); wall 3→2 (≤920); gallery/studio/visit
+- **Radii** — cards/pieces `4px`, buttons `2px`. The sun is the only round form.
+- **Grids** — menu 4→2 (≤980)→1 (≤540); gallery/studio/visit
   2→1 (≤720–820); services 4-col→stacked (≤820).
 
 ---
@@ -174,7 +173,6 @@ baseline like book type. Anything columnar — `.hours`, `.facts`, `.voucher dd`
 | **Nav** | Fixed, ink-on-sky throughout (no light/dark inversion). Frosts to `rgba(255,255,255,.62)` + blur once scrolled. 2px accent progress bar. |
 | **Service row** `.svc` | Editorial list; hover washes `--accent-wash`, indents, grows a colored left bar (`--a`). |
 | **Menu card** `.mcard` | Hairline compartment with a 4px colored top bar (`--mc`). |
-| **Swatch chip** `.chip` | The one place with saturated color and glass: full-bleed polish gradient, gloss highlight, and a dark glass label that refracts it. |
 | **Gallery piece** `.piece` | White hairline mat, slight tilt that rights on hover, image scales `1.04`. |
 | **Voucher** `.voucher` | Translucent white panel with a blur — the Wednesday offer's anchor. |
 | **Hours** | A `.glass` panel. **`.glass` supplies no padding of its own** — the list must provide it (`.3rem clamp(1.15rem,2.2vw,1.6rem)`) or rows sit flush against the panel edge. |
