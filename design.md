@@ -42,7 +42,7 @@ Arc: `x = 8 + p*84` (%), `y = 82 − sin(π·p)*66` (vh).
 | **Name** | June's Art Nail |
 | **Location** | 441 Passaic Ave, Lodi, NJ 07644 |
 | **Phone** | (973) 778-4494 · `tel:+19737784494` |
-| **Services** | Manicures · Pedicures · Waxing · Permanent make-up |
+| **Services** | Manicures · Pedicures · Waxing |
 | **Hours** | Mon–Fri 9:30 AM–7:30 PM · Sat 9:30 AM–6:30 PM · Sun closed *(per business card)* |
 | **Descriptor** | "Full Service" |
 | **Signature offer** | Free 10-minute massage with every Wednesday pedicure *(an add-on to pedicures — massage is not sold as a standalone service)* |
@@ -102,8 +102,8 @@ graphics use the plain one.**
 | `--accent-deep` | = `--magenta-ink` | interactive: fills, links, focus |
 
 **Categorical coding** (services and menu cards) maps onto the palette:
-Manicures → magenta · Pedicures → peach · Waxing → brick ·
-Permanent make-up → magenta. Because those vars color small labels, the markup
+Manicures → magenta · Pedicures → peach · Waxing → brick.
+Because those vars color small labels, the markup
 passes the `-ink` variants.
 
 ### Usage rules

@@ -1,7 +1,7 @@
 # June's Art Nail — Studio Website
 
 Marketing site for **June's Art Nail**, a nail studio in Lodi, NJ.
-Manicures, pedicures, waxing, and permanent make-up.
+Manicures, pedicures, and waxing.
 
 A single-page static site — no build step, no framework, no dependencies.
 Just HTML, CSS, and a little vanilla JavaScript.
