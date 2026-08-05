@@ -43,7 +43,8 @@ Arc: `x = 8 + p*84` (%), `y = 82 − sin(π·p)*66` (vh).
 | **Location** | 441 Passaic Ave, Lodi, NJ 07644 |
 | **Phone** | (973) 778-4494 · `tel:+19737784494` |
 | **Services** | Manicures · Pedicures · Waxing |
-| **Hours** | Mon–Fri 9:30 AM–7:30 PM · Sat 9:30 AM–6:30 PM · Sun closed *(per business card)* |
+| **Hours** | Mon–Fri 9:30 AM–7:00 PM · Sat 9:30 AM–6:00 PM · Sun closed |
+| **Parking** | Own lot, plus street parking |
 | **Descriptor** | "Full Service" |
 | **Signature offer** | Free 10-minute massage with every Wednesday pedicure *(an add-on to pedicures — massage is not sold as a standalone service)* |
 | **Voice** | Plain and warm — how the salon actually talks. Say the thing directly ("Prices depend on length, shape, and design"), not literarily ("the polish sets, the shoulders drop"). No marketing voice, no metaphor for its own sake. |
