@@ -833,6 +833,11 @@ nav.on-dark.scrolled{background:rgba(23,10,8,.55);border-color:rgba(251,235,211,
 @media(max-width:640px){.moon{width:42px;top:70%;left:auto;right:8vw}}
 /* the band sits directly on the hill at every width */
 .hero .ticker{margin-top:0}
+/* the polish wall: one wide photograph across the whole gallery row, cropped
+   to the shelves (the counter below is clutter, the wall above is blank) */
+.piece.wide{grid-column:1/-1;--tilt:.35deg;--tape:2deg;background:#FFFAF1;border:1px solid var(--line)}
+.piece.wide img{aspect-ratio:2.3/1;object-position:50% 44%}
+@media(max-width:620px){.piece.wide img{aspect-ratio:4/3;object-position:50% 50%}}
 </style>
 <!-- anime.js v4 (vendored locally: no CDN, works offline, self-contained deploy) -->
 <script src="assets/anime.min.js"></script>
@@ -1170,6 +1175,10 @@ nav.on-dark.scrolled{background:rgba(23,10,8,.55);border-color:rgba(251,235,211,
       <figure class="piece p3 reveal s3">
         <div class="frame"><img src="assets/work-brights.webp" alt="Mismatched manicure with every nail a different colour — indigo, white, mustard, pine and pink" loading="lazy" width="1099" height="988"></div>
         <figcaption><b>One of each</b><span>Colour set</span></figcaption>
+      </figure>
+      <figure class="piece p4 wide reveal s1">
+        <div class="frame"><img src="assets/work-polish-wall.webp" alt="The salon's polish wall: long white shelves lined with hundreds of gel and lacquer colors, from nudes and pinks to brights and glitters" loading="lazy" width="2000" height="1500"></div>
+        <figcaption><b>Our polish wall</b><span>At the salon</span></figcaption>
       </figure>
     </div>
 
