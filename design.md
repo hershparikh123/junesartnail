@@ -4,32 +4,35 @@ The visual and interaction language of the June's Art Nail studio site. This is
 the source of truth for the brand: extend the site by composing these tokens and
 patterns rather than inventing new ones.
 
-**Personality:** bright, minimal, modern. One continuous sky, one small sun, and
-a warm rose-to-magenta palette. Almost all separation is done with hairlines and
-space rather than boxes or background slabs. Nothing shouts.
+**Personality:** calm, warm, unhurried: the exhale after summer. One continuous
+autumn sky, one low sun, leaves that turn as you scroll, and a maple-to-moss
+palette. Almost all separation is done with hairlines and space rather than
+boxes or background slabs. Nothing shouts; nothing moves fast.
 
 ---
 
-## 1. The organising idea: one day, one scroll
+## 1. The organising idea: one season, one scroll
 
-The whole page shares a **single fixed canvas** — one sky — instead of a run of
+The whole page shares a **single fixed canvas** (one sky) instead of a run of
 separately decorated sections. A single scroll-progress value (0 → 1) drives:
 
-- the **sky's** two gradient stops (`--sky-a` top, `--sky-b` bottom), and
-- the **sun's** position along an arc, and its colour.
+- the **sky's** two gradient stops (`--sky-a` top, `--sky-b` bottom), from
+  late-summer gold to deep persimmon,
+- the **sun's** position along an arc, and its colour, and
+- the **leaf colour** of every branch leaf (`--leaf-now` plus a per-leaf fill).
 
-The sun rises low-left at the top of the page, is overhead at the midpoint, and
-sets low-right at the bottom. The footer is the one dark surface: night, after
-the sun has gone. Scrolling the site is therefore one continuous story rather
-than a sequence of unrelated panels — that continuity *is* the design.
+The top of the page is the last warm week of summer. By the bottom the leaves
+have gone red and brown, and the footer is the first cold night. Scrolling the
+site is one continuous story rather than a sequence of unrelated panels, and
+that continuity *is* the design.
 
 | Scroll | Sun x | Sun y | Moment |
 |---|---|---|---|
-| 0.00 | 8% | 82vh | first light |
-| 0.25 | 29% | 35vh | mid-morning |
-| 0.50 | 50% | 16vh | overhead |
-| 0.75 | 71% | 35vh | afternoon |
-| 1.00 | 92% | 82vh | golden hour → night (footer) |
+| 0.00 | 8% | 82vh | late summer |
+| 0.25 | 29% | 35vh | early fall |
+| 0.50 | 50% | 16vh | peak colour |
+| 0.75 | 71% | 35vh | turning |
+| 1.00 | 92% | 82vh | late autumn → first cold night (footer) |
 
 Arc: `x = 8 + p*84` (%), `y = 82 − sin(π·p)*66` (vh).
 
@@ -57,66 +60,73 @@ uppercase eyebrow above each one was removed; only the hero keeps one.
 
 ## 3. Color
 
-### The canvas pink
+### The canvas
 
-The business card is pink — that is the real brand color, and it is now the
-canvas. `--pink #F4A6C0` · `--pink-soft #FBDCE7` · `--pink-deep #C43D6E`.
-The sky ramps through it (see §1), the footer is a deep plum-pink night
-(`--night #25101E`) rather than neutral black, and surfaces carry a hint of it
-instead of plain white.
+An autumn sky that deepens as you scroll. Every stop stays high-luminance
+(see §7). Keyframes live in the `DAY` array in the script:
 
-### The brand palette
+| p | Sky top | Sky bottom | Moment |
+|---|---|---|---|
+| 0.00 | `rgb(252,232,198)` | `rgb(250,219,180)` | late summer |
+| 0.34 | `rgb(251,226,188)` | `rgb(249,214,172)` | early fall |
+| 0.62 | `rgb(249,218,178)` | `rgb(247,206,165)` | peak colour |
+| 1.00 | `rgb(246,204,160)` | `rgb(242,190,146)` | late autumn |
 
-The four brand swatches. These are **graphic** colors — bars, dots, rules and
-the sun.
+The footer is `--night #1E130D`: a cold bark-brown night, not neutral black.
+
+### The autumn palette
+
+**Graphic** colours: bars, dots, rules, leaves.
 
 | Token | Hex | |
 |---|---|---|
-| `--brick` | `#A2574F` | warm rosewood |
-| `--peach` | `#E68057` | soft apricot |
-| `--rose` | `#BF7587` | dusty rose |
-| `--magenta` | `#993A8B` | the signature |
+| `--maple` | `#B4441F` | the signature (accent) |
+| `--pumpkin` | `#D9772B` | warm orange |
+| `--cranberry` | `#8E2C3A` | deep red |
+| `--moss` | `#6F7A3A` | the last green |
+| `--gold` | `#D9A534` | ticker dots |
+| `--bark` | `#6E3F24` | branch stems |
+| `--harvest` | `#F2C48D` | type on the night footer |
 
 ### Text-safe partners
 
-Only `--magenta` is dark enough to carry small text on the sky unaided, so each
-brand color has an `-ink` partner for type. **Small text uses the `-ink` value;
-graphics use the plain one.**
+**Small text uses the `-ink` value; graphics use the plain one.**
 
-| Token | Hex | On darkest sky |
+| Token | Hex | On deepest sky |
 |---|---|---|
-| `--magenta-ink` | `#7E2E73` | 6.27:1 |
-| `--brick-ink` | `#8A453E` | 5.28:1 |
-| `--peach-ink` | `#9A4523` | 4.88:1 |
-| `--rose-ink` | `#8E4A5C` | 4.82:1 |
+| `--maple-ink` | `#8C3115` | 4.89:1 |
+| `--cranberry-ink` | `#7C2433` | 5.82:1 |
+| `--pumpkin-ink` | `#7E3D0D` | ≥4.5:1 |
+| `--moss-ink` | `#4B5522` | 4.79:1 |
+| `--bark-ink` | `#6E3F24` | 5.23:1 |
 
 ### Neutrals & roles
 
 | Token | Hex | Role |
 |---|---|---|
-| `--ink` | `#15191E` | primary text |
-| `--ink-soft` | `#333C45` | secondary text |
-| `--muted` | `#414A55` | tertiary text — deliberately dark (see §7) |
-| `--line` | `rgba(21,25,30,.13)` | hairlines, the main separator |
-| `--night` | `#14181D` | the footer only |
-| `--accent` | = `--magenta` | large type, graphic marks |
-| `--accent-deep` | = `--magenta-ink` | interactive: fills, links, focus |
+| `--ink` | `#2A1A12` | primary text |
+| `--ink-soft` | `#4A362A` | secondary text |
+| `--muted` | `#553F31` | tertiary text, deliberately dark (see §7) |
+| `--line` | `rgba(58,32,18,.13)` | hairlines, the main separator |
+| `--accent` | = `--maple` | large type, graphic marks |
+| `--accent-deep` | = `--maple-ink` | interactive: fills, links, focus |
 
-**Categorical coding** (services and menu cards) maps onto the palette:
-Manicures → magenta · Pedicures → peach · Waxing → brick.
-Because those vars color small labels, the markup
-passes the `-ink` variants.
+Surfaces (cards, gallery mats, nav, voucher) use a warm near-white
+(`#FFFAF1` / `rgba(255,250,240,…)`), not pure white. Shadows are tinted toward
+bark (`rgba(58,32,18,…)`).
+
+**Categorical coding** (services and menu cards):
+Manicures → cranberry · Pedicures → pumpkin · Gel & sets → maple · Waxing → moss.
+The markup passes the `-ink` variants because those vars colour small labels.
 
 ### Usage rules
 
 - The canvas is the sky; sections are **transparent** by default. Separation is a
-  `1px var(--line)` rule, occasionally a translucent white surface
-  (`rgba(255,255,255,.5)`), never a colored slab.
+  `1px var(--line)` rule, occasionally a translucent warm surface, never a
+  coloured slab.
 - `--accent-deep` signals interactivity: button fills, the phone link, focus
   rings, the progress bar.
-- White text needs `--accent-deep`, never `--accent`: white on the lighter
-  magenta is 3.9:1 and fails; on the deep magenta it is 8.32:1.
-- Focus ring: `2px solid var(--brass)` (→ accent), `outline-offset:3px`. Never remove.
+- White text needs `--accent-deep` (8.19:1), never `--accent`.
 
 ---
 
@@ -169,7 +179,7 @@ baseline like book type. Anything columnar — `.hours`, `.facts`, `.voucher dd`
 | Component | Notes |
 |---|---|
 | **Sky** `.sky` | Fixed, `z-index:-2`, full-viewport gradient of `--sky-a`/`--sky-b`. |
-| **Sun** `.sun` | Fixed, `z-index:-1`, `clamp(76px,9vw,140px)`. A plain disc plus one faint halo — no rays, no corona, no pulse. |
+| **Sun** `.sun` | Fixed, `z-index:-1`, `clamp(76px,9vw,140px)`. A pale low autumn sun: a plain disc plus one faint amber halo. No rays, no corona, no pulse. |
 | **Button** `.btn` | Uppercase 12px, `2px` radius. Primary (`.gold`) is solid `--accent-deep` with white text, wiping to ink on hover. Secondary (`.line`/`.bone`/`.ghostbone`) is an ink outline that fills on hover. |
 | **Nav** | Fixed, ink-on-sky throughout (no light/dark inversion). Frosts to `rgba(255,255,255,.62)` + blur once scrolled. 2px accent progress bar. |
 | **Service row** `.svc` | Editorial list; hover washes `--accent-wash`, indents, grows a colored left bar (`--a`). |
@@ -177,32 +187,38 @@ baseline like book type. Anything columnar — `.hours`, `.facts`, `.voucher dd`
 | **Gallery piece** `.piece` | White hairline mat, slight tilt that rights on hover, image scales `1.04`. |
 | **Voucher** `.voucher` | Translucent white panel with a blur — the Wednesday offer's anchor. |
 | **Hours** | A `.glass` panel. **`.glass` supplies no padding of its own** — the list must provide it (`.3rem clamp(1.15rem,2.2vw,1.6rem)`) or rows sit flush against the panel edge. |
-| **Footer** | `--night`. The story's full stop. |
-| **Botanicals** `.botanical` | Line-art sprigs, blooms and a flowering branch. |
+| **Footer** | `--night`. The first cold night; the story's full stop. |
+| **Branches** `.botanical` | Autumn branches whose leaves change colour with the season (§6b). |
+| **Falling leaves** `.leaves` | A slow background drift; each leaf ripens as it falls (§6b). |
 
-### 6b. Botanicals
+### 6b. Branches and falling leaves
 
-Six inline SVG line drawings — sprigs framing the hero, a bloom in the intro, a
-flowering branch over the shade wall, a sprig in the visit gutter, and a small
-bloom on the footer's night edge.
+**Branches** `.botanical`: two autumn branches framing the hero, a large
+maple-leaf outline in the intro gutter, a leafy twig in the visit gutter, and
+one small leaf on the footer's night edge. Leaf shapes (`#lf-maple`, `#lf-oak`,
+`#lf-elm`) are `<symbol>`s in one sprite at the top of `<body>`.
 
-They use the same idiom as the painted stroke: **every path carries
-`pathLength="100"`**, so a single `stroke-dasharray:100` draws them all
-uniformly regardless of their real length, and `.d2/.d3/.d4` stagger the parts so
-a sprig unfurls stem → leaves → bloom. Stroke color comes from `--bot`, size from
-`--bot-w`, opacity from `--bot-o` (0.3–0.5).
+- Stems use the painted-stroke idiom: **every path carries `pathLength="100"`**,
+  so one `stroke-dasharray:100` draws them all, and `.d2–.d5` stagger the parts.
+- Leaves (`.lf`) are filled `<use>`s. JS sets each one's fill from the
+  **season ramp** (green `#8E9B3F` → gold → amber → pumpkin → maple red →
+  crimson → brown `#7A4228`). Input is `ripen + scrollProgress` plus that
+  leaf's own `data-o` offset, so a branch turns unevenly, like a real tree.
+- On load, `ripen` eases from 0 to 0.24 over ~6s, so the hero leaves visibly
+  turn from green to gold before anyone scrolls.
 
-Two rules keep them from becoming clutter:
+**Falling leaves** `.leaves`: a fixed layer at `z-index:-1`. JS builds 16 (9
+on phones), each with its own speed (18–30s), sway, size and opacity (.4–.62).
+Every leaf **ripens while it falls** through a `leaf-ripen` keyframe on
+`fill`. Negative delays start them mid-fall. Transform-only animation. With
+reduced motion the layer is never built and is `display:none`.
 
-1. **They live in gutters, never over copy.** The content column caps at 1180px,
-   so below ~1240px there is no gutter and `.b-intro`, `.b-wall` and `.b-visit`
-   are `display:none`. Collision with real text nodes is measured at 375 / 885 /
-   1425px, not eyeballed.
-2. **They are armed by `.bot-anim`, not `.anim-ready`.** JS adds `.bot-anim` only
-   while `document.visibilityState === "visible"`. CSS transitions do not advance
-   in a hidden or prerendered tab, so gating on script-loaded alone would ship the
-   flowers permanently invisible. Unarmed, they render fully drawn — the correct
-   fallback.
+Two rules keep the branches from becoming clutter:
+
+1. **They live in gutters, never over copy.** Below ~1240px there is no gutter,
+   so `.b-intro` and `.b-visit` are `display:none`.
+2. **They are armed by `.motion-ok`, not `.anim-ready`** (see §8). Unarmed,
+   they render fully drawn and fully leafed, which is the correct fallback.
 
 ---
 
@@ -226,16 +242,18 @@ Measured worst cases across the whole scroll (all AA-passing):
 
 | Pair | Worst |
 |---|---|
-| `--ink` on darkest sky | 13.32:1 |
-| `--ink` directly over the sun | 12.18:1 |
-| `--muted` on darkest sky | 6.78:1 |
-| **`--muted` directly over the sun** | **6.21:1** |
-| `--magenta-ink` (accent text) on sky | 6.27:1 |
-| white on `--accent-deep` fill | 8.32:1 |
-| white on the night footer | 17.82:1 |
+| `--ink` on deepest sky | 10.01:1 |
+| `--muted` on deepest sky | 5.86:1 |
+| `--muted` directly over the sun | 7.15:1 |
+| `--maple-ink` (accent text) on deepest sky | 4.89:1 |
+| `--maple` (large display type only) on deepest sky | 3.32:1 |
+| white on `--accent-deep` fill | 8.19:1 |
+| white on the night footer | 18.19:1 |
+| `--harvest` on the night footer | 11.31:1 |
 
 Decorative layers are `aria-hidden`, `pointer-events:none`, and painted at
-negative z-index beneath all content.
+negative z-index beneath all content. Falling leaves stay small and at most 0.62
+opacity so text they drift behind stays legible.
 
 **Re-measure after any color change.** Both regressions found so far (a 4.17:1
 note, a 2.44:1 paragraph over the sun) were caught by measuring, not by eye.
@@ -321,4 +339,37 @@ both withheld, and CSS forces `.reveal`, `.fade-up` and `.w` visible.
    **with an `-ink` partner** if it will ever carry small text.
 3. Any new decorative layer goes behind content and must not darken the sky.
 4. Re-run the contrast table in §7 before shipping a color change.
-5. The restraint is the brand: one sky, one sun, hairlines, and space.
+5. The restraint is the brand: one sky, one sun, one season, hairlines, and space.
+
+
+---
+
+## 10. The harvest layer (fall, back to school)
+
+The fall season runs the page as a series of distinct worlds, and each one is
+deliberately different: a dark harvest dusk, a pumpkin band, a chalkboard, warm
+paper and flannel, a notebook page, then night. The CSS sits in one block at
+the end of the stylesheet (`HARVEST — the second fall layer`), so the season
+can be lifted out later.
+
+| Piece | What it is |
+|---|---|
+| **Hero dusk** `.hero-sky` | Its own sky: `#140807` → `#6E2911` with an ember glow at the horizon, a scatter of breathing stars, and a harvest `.moon`. Type turns cream (`--cream #FBEBD3`), the accent becomes `--glow #F29A4A`, and the nav gets `.on-dark` while it is over the hero. |
+| **Hero leaves** `.hero-leaves` | A second falling-leaf layer inside the hero (14, or 8 on phones) at higher opacity with a soft glow. |
+| **Handwritten note** `.hand-note` | "hello, sweater weather" in `--hand` (Homemade Apple), `aria-hidden`, pinned to the headline. It is the only new copy on the page. |
+| **Pumpkin patch** `.patch` | A hill silhouette, a cluster of pumpkins, and a stack of schoolbooks with an apple and a pencil. |
+| **Pumpkins** `#pk` | One symbol: five ribs share a radial gradient. `--pkf` swaps it for `#pkO` orange, `#pkW` white, `#pkR` red, or `#pkG` green gourd. They appear in the patch, the services header and the footer step. |
+| **Pumpkin band** `.ticker` | Solid `--ember #E0702A` with dark type (5.49:1). |
+| **Chalkboard** `.promo-in` | A slate board (`--board #1E2A24`) with chalk dust, a wood frame, a chalk ledge, and self-drawing chalk doodles (`.botanical.chalk`). |
+| **Index card** `.voucher` | Ruled paper with a red margin line and striped tape. It uses the `rotate` property rather than `transform`, so anime.js entrances compose with it. |
+| **Flannel** `.services` | A two-axis plaid at 6% over warm paper. |
+| **Menu cards** `.mcard` | Index cards at slight alternating angles. The coloured `.bar` became a strip of tape. |
+| **Polaroids** `.piece` | Plaid tape on top, with the caption in the handwritten face. |
+| **Pumpkin spice latte** `.psl` | A cup beside "Plan your visit", with steam that rises (static when reduced motion is on). |
+| **Notebook hours** `.hours` | Ruled lines, a red margin, three punched holes, today's row circled in red pencil, and an apple on the corner. |
+| **Pencil** `.progress` | The scroll progress bar is a yellow pencil with an eraser and a sharpened tip. It is hidden at the top of the page. |
+
+Legibility: cream on the hero dusk is at least 9.0:1 (at the horizon), chalk on the board is
+12.96:1, dark ink on the `--glow` button is 7.57:1, and dark ink on the pumpkin band
+is 5.49:1. The moon is placed clear of the copy at every width (on phones it
+rises over the patch). Collisions are measured, not eyeballed.

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#EFE8F1">
+<meta name="theme-color" content="#140807">
 <meta name="color-scheme" content="light">
 <title>June's Art Nail — Full Service Nail Salon · Lodi, NJ</title>
 <meta name="description" content="June's Art Nail — a full-service nail salon in Lodi, NJ. Manicures, pedicures, and waxing. 441 Passaic Ave, Lodi, NJ 07644. Open Mon–Sat, walk-ins welcome. Call (973) 778-4494.">
@@ -12,47 +12,45 @@
 <!-- Fraunces carries SOFT (terminal softness) and WONK (alternate italic forms)
      alongside optical sizing; the display face uses them for a finer, more
      deliberate cut than the default instance. -->
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Homemade+Apple&display=swap" rel="stylesheet">
 <style>
 :root{
   /* ---- the sky: ONE continuous canvas for the whole page ----
      --sky-a/--sky-b are rewritten on scroll as the day progresses. Every stop is
      kept high-luminance on purpose, so dark ink text can never lose contrast. */
-  --sky-a:#FBE2EC; --sky-b:#FDEFE9;
-  
+  /* the season opens on late-summer gold and deepens to persimmon at the bottom */
+  --sky-a:#FCE8C6; --sky-b:#FADBB4;
 
   /* ---- ink: dark-on-light everywhere (the legibility guarantee) ---- */
   /* --muted is deliberately dark: it must stay ≥4.5:1 even where a paragraph
-     passes directly over the sun disc (a light gray failed there at 2.4:1). */
-  --ink:#15191E; --ink-soft:#333C45; --muted:#414A55;
+     passes directly over the sun disc or the deepest persimmon sky. */
+  --ink:#2A1A12; --ink-soft:#4A362A; --muted:#553F31;
   /* hairlines are finer than default UI borders — at this weight a rule reads as
      a printed hairline rather than a box edge */
-  --line:rgba(21,25,30,.10); --line-soft:rgba(21,25,30,.055);
-  --line-strong:rgba(21,25,30,.20);
+  --line:rgba(58,32,18,.13); --line-soft:rgba(58,32,18,.07);
+  --line-strong:rgba(58,32,18,.24);
   /* layered shadows: a tight contact shadow plus a wide ambient one, the way
-     real light falls. A single large blur reads as a sticker. */
-  --lift-1:0 1px 2px rgba(21,25,30,.04),0 8px 24px -12px rgba(21,25,30,.10);
-  --lift-2:0 1px 2px rgba(21,25,30,.05),0 18px 48px -20px rgba(21,25,30,.16);
-  --lift-3:0 2px 4px rgba(21,25,30,.05),0 34px 80px -28px rgba(21,25,30,.22);
+     real light falls. Tinted toward bark, not neutral gray. */
+  --lift-1:0 1px 2px rgba(58,32,18,.05),0 8px 24px -12px rgba(58,32,18,.14);
+  --lift-2:0 1px 2px rgba(58,32,18,.06),0 18px 48px -20px rgba(58,32,18,.2);
+  --lift-3:0 2px 4px rgba(58,32,18,.06),0 34px 80px -28px rgba(58,32,18,.28);
 
-  /* ---- brand palette (the four supplied swatches) ----
-     Used for graphics: bars, dots, rules, the sun. Only --magenta is dark
-     enough to carry small text on the sky, so each has an -ink partner below. */
-  --brick:#A2574F; --peach:#E68057; --rose:#BF7587; --magenta:#993A8B;
-  /* the card's own pink — the actual brand colour, and the canvas hue */
-  --pink:#F4A6C0;
-
-  /* ---- text-safe partners: every one clears 4.5:1 on the darkest sky.
-     Re-tuned when the canvas moved to the card's saturated pink — the deeper
-     sky dropped the previous values to 3.8–4.2:1. ---- */
-  --brick-ink:#7E3E38; --peach-ink:#8A3D1E; --rose-ink:#7D3F4F; --magenta-ink:#7E2E73;
+  /* ---- the autumn palette ----
+     Graphic colours: bars, dots, rules, leaves. Each has an -ink partner that
+     clears 4.5:1 on the deepest sky for anything carrying small text. */
+  --maple:#B4441F; --pumpkin:#D9772B; --cranberry:#8E2C3A; --moss:#6F7A3A;
+  --gold:#D9A534; --bark:#6E3F24;
+  --maple-ink:#8C3115; --pumpkin-ink:#7E3D0D; --cranberry-ink:#7C2433; --moss-ink:#4B5522;
+  --bark-ink:#6E3F24;
+  /* a pale harvest amber for type on the night footer */
+  --harvest:#F2C48D;
 
   /* ---- roles ---- */
-  --accent:var(--magenta); --accent-deep:var(--magenta-ink);
-  --wash:#FDEBF3;                 /* the pink hover wash */
+  --accent:var(--maple); --accent-deep:var(--maple-ink);
+  --wash:rgba(217,119,43,.09);    /* a warm pumpkin hover wash */
 
-  /* ---- night: the footer only, after the sun has set ---- */
-  --night:#25101E;
+  /* ---- night: the footer only — a cold autumn night after the leaves fall ---- */
+  --night:#1E130D;
 
   --serif:"Fraunces",Georgia,serif; --sans:"Instrument Sans",Arial,sans-serif;
   /* motion: expensive things decelerate slowly and never overshoot */
@@ -90,11 +88,11 @@ h1 em,h2 em,.hero h1 em,h2.title em{font-variation-settings:"opsz" 144,"SOFT" 34
 .sun{position:fixed;z-index:-1;pointer-events:none;
   width:var(--sun-size,clamp(76px,9vw,140px));aspect-ratio:1;border-radius:50%;
   left:var(--sun-x,50%);top:var(--sun-y,50%);translate:-50% -50%;
-  background:radial-gradient(circle at 50% 50%,#FFFAF3,var(--sun-now,#FFD9C9) 60%,rgba(255,217,201,0) 80%);
+  background:radial-gradient(circle at 50% 50%,#FFF8E8,var(--sun-now,#FFE2B0) 60%,rgba(255,226,176,0) 80%);
   opacity:.95}
 /* one faint halo — the only flourish, and it stays under the text */
 .sun::after{content:"";position:absolute;inset:-105%;border-radius:50%;
-  background:radial-gradient(circle,rgba(230,128,87,.11),transparent 64%)}
+  background:radial-gradient(circle,rgba(217,119,43,.13),transparent 64%)}
 @media (prefers-reduced-motion: reduce){.sun{transition:none}}
 img,svg{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
@@ -149,51 +147,86 @@ h2.title em{font-style:italic;font-weight:300;color:var(--accent)}
    would ship every section heading displaced 105% and clipped out of view. */
 .motion-ok .reveal:not(.in) .titlemask>span{transform:translateY(105%);opacity:0}
 
-/* ============ botanicals ============
-   Line-art sprigs drawn in the same idiom as the painted stroke: every path
-   carries pathLength="100", so one dash length draws them all uniformly. They
-   bloom as they enter view — the sun rises, the garden opens.
-   Purely decorative: aria-hidden, pointer-events:none, behind all content, and
-   thin enough at low opacity that copy passing over them stays legible. */
+/* ============ branches: the leaves that turn ============
+   Autumn branches in the gutters, drawn in the same idiom as the painted
+   stroke: every stem carries pathLength="100", so one dash length draws them
+   all uniformly. The leaves (.lf) are filled shapes whose colour JS sets from
+   the season — green at the top of the page, gold, pumpkin, maple red, and
+   finally brown by the footer. Each leaf has its own small offset (data-o), so
+   a branch never turns all at once: the outer leaves go first, like a real tree.
+   Purely decorative: aria-hidden, pointer-events:none, behind all content. */
 .botanical{position:absolute;pointer-events:none;z-index:0;
-  width:var(--bot-w,150px);opacity:var(--bot-o,.36)}
+  width:var(--bot-w,150px);opacity:var(--bot-o,.85)}
 .botanical svg{width:100%;height:auto;overflow:visible;display:block}
 .botanical path,.botanical circle{
-  fill:none;stroke:var(--bot,var(--rose-ink));
-  stroke-width:var(--bot-sw,1.5);stroke-linecap:round;stroke-linejoin:round;
+  fill:none;stroke:var(--bot,var(--bark));
+  stroke-width:var(--bot-sw,2.2);stroke-linecap:round;stroke-linejoin:round;
   stroke-dasharray:100;stroke-dashoffset:0;
   transition:stroke-dashoffset 1.7s var(--ease)}
+/* leaves: filled, no stroke; their colour eases between season frames */
+.botanical .lf{fill:var(--leaf-now,#C4A33A);stroke:none;
+  transform-box:fill-box;transform-origin:50% 100%;
+  transition:fill .5s linear,opacity .9s var(--ease-lux),transform 1.1s var(--ease-lux)}
+.botanical .lf-line{fill:var(--leaf-now,#C4A33A);fill-opacity:.22;
+  transition:stroke-dashoffset 2.2s var(--ease),fill .5s linear,fill-opacity 1.2s var(--ease) 1.2s}
 /* Armed via .motion-ok, which JS adds ONLY while the document is actually
    visible. CSS transitions do not advance in a hidden or prerendered tab, so
    gating on anime-ready alone would ship these permanently invisible. Unarmed =
    fully drawn and visible, which is the correct fallback. */
 .motion-ok .botanical{opacity:0;transition:opacity 1s var(--ease)}
 .motion-ok .botanical:not(.in) path,.motion-ok .botanical:not(.in) circle{stroke-dashoffset:100}
-.motion-ok .botanical.in{opacity:var(--bot-o,.36)}
-/* a stagger so a sprig unfurls stem-first, then leaves, then bloom */
+.motion-ok .botanical:not(.in) .lf{opacity:0;transform:scale(.35) rotate(-18deg)}
+.motion-ok .botanical:not(.in) .lf-line{fill-opacity:0}
+.motion-ok .botanical.in{opacity:var(--bot-o,.85)}
+/* a stagger so a branch grows stem-first, then its leaves unfold */
 .botanical .d2{transition-delay:.28s}.botanical .d3{transition-delay:.52s}
-.botanical .d4{transition-delay:.74s}
+.botanical .d4{transition-delay:.74s}.botanical .d5{transition-delay:.95s}
 @media (prefers-reduced-motion: reduce){
-  .botanical,.botanical path,.botanical circle{transition:none}
+  .botanical,.botanical path,.botanical circle,.botanical .lf{transition:none}
 }
 /* placements — all in margins/gutters, clear of the text column */
-.b-hero-l{left:2vw;bottom:15vh;--bot-w:clamp(84px,10vw,150px);--bot:var(--brick-ink)}
-.b-hero-r{right:2vw;bottom:13vh;--bot-w:clamp(84px,10vw,150px);--bot:var(--rose-ink);transform:scaleX(-1)}
-.b-intro{right:1vw;top:8%;--bot-w:clamp(76px,8vw,116px);--bot:var(--magenta-ink);--bot-o:.3}
+.b-hero-l{left:2vw;bottom:13vh;--bot-w:clamp(110px,12.5vw,196px)}
+.b-hero-r{right:2vw;bottom:11vh;--bot-w:clamp(110px,12.5vw,196px);transform:scaleX(-1)}
+.b-intro{right:1vw;top:8%;--bot-w:clamp(84px,8vw,124px);--bot:var(--bark);--bot-o:.7;--bot-sw:1.4}
 /* Gutter decorations need a gutter. The content column caps at 1180px, so below
    ~1240px there is none and these would cross the copy — measured, not guessed. */
 .b-intro{display:none}
 @media(min-width:1240px){.b-intro{display:block}}
-/* the visit sprig only appears where there is real gutter beside the 1180px
+/* the visit twig only appears where there is real gutter beside the 1180px
    content column; below that it would cross the copy, so it is dropped */
-.b-visit{left:0;bottom:3%;--bot-w:clamp(72px,7vw,110px);--bot:var(--brick-ink);--bot-o:.3;display:none}
+.b-visit{left:0;bottom:3%;--bot-w:clamp(80px,7vw,116px);--bot-o:.8;display:none}
 @media(min-width:1240px){.b-visit{display:block}}
-.b-foot{left:50%;translate:-50% 0;top:-14px;--bot-w:54px;--bot:#fff;--bot-o:.5;--bot-sw:1.6}
-/* on small screens the gutters vanish — shrink, fade, and drop the crowded ones */
+/* on small screens the gutters vanish — shrink, soften, and drop the crowded ones */
 @media(max-width:860px){
-  .b-hero-l,.b-hero-r{--bot-w:70px;--bot-o:.22;bottom:10vh}
+  .b-hero-l,.b-hero-r{--bot-w:78px;--bot-o:.55;bottom:9vh}
 }
 @media(max-width:560px){.b-hero-r{display:none}}
+
+/* ============ falling leaves ============
+   A handful of leaves drifting down behind everything, slowly — the pace is the
+   point. Each one ripens while it falls (green → gold → pumpkin → red → brown),
+   so the colour change is visible even if nobody scrolls. Built by JS only when
+   motion is welcome; with reduced motion the layer simply stays empty.
+   Transform-only animation on ~14 small nodes: compositor work, no layout. */
+.leaves{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.leaf{position:absolute;top:0;left:var(--x);width:var(--s);aspect-ratio:1;
+  opacity:var(--o,.6);will-change:transform;
+  animation:leaf-fall var(--d) linear var(--dl) infinite}
+.leaf svg{width:100%;height:100%;overflow:visible;
+  animation:leaf-sway var(--sw) ease-in-out var(--dl) infinite alternate,
+            leaf-ripen var(--d) linear var(--dl) infinite}
+@keyframes leaf-fall{
+  from{transform:translate3d(0,-12vh,0)}
+  to{transform:translate3d(var(--dx),112vh,0)}}
+/* the sway is a pendulum with a little tumble on the X axis, like a real leaf
+   rocking side to side rather than spinning */
+@keyframes leaf-sway{
+  from{transform:translateX(calc(var(--amp) * -1)) rotate(calc(var(--r) * -1)) rotateX(0deg)}
+  to{transform:translateX(var(--amp)) rotate(var(--r)) rotateX(55deg)}}
+@keyframes leaf-ripen{
+  0%{fill:#8E9B3F} 22%{fill:#C4A33A} 42%{fill:#E0A030}
+  60%{fill:#DB7A2C} 78%{fill:#C04A26} 90%{fill:#9A3328} 100%{fill:#7A4228}}
+@media (prefers-reduced-motion: reduce){.leaves{display:none}}
 
 /* The wipe is the hover; the press is a separate, much faster acknowledgement.
    Feedback under ~120ms reads as instant — the button feels mechanical rather
@@ -201,7 +234,7 @@ h2.title em{font-style:italic;font-weight:300;color:var(--accent)}
 .btn{display:inline-flex;align-items:center;gap:.7em;font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;font-weight:700;
   padding:1.15em 2.6em;border-radius:2px;border:1px solid var(--ink);color:#fff;background:var(--ink);
   position:relative;overflow:hidden;cursor:pointer;
-  box-shadow:0 0 0 rgba(21,25,30,0);
+  box-shadow:0 0 0 rgba(58,32,18,0);
   transition:color .34s var(--ease-lux),border-color .34s var(--ease-lux),
              box-shadow .34s var(--ease-lux),transform .1s var(--ease-lux)}
 .btn::before{content:"";position:absolute;inset:0;background:var(--accent);
@@ -231,9 +264,9 @@ h2.title em{font-style:italic;font-weight:300;color:var(--accent)}
 @property --mx{syntax:"<percentage>";inherits:false;initial-value:50%}
 @property --my{syntax:"<percentage>";inherits:false;initial-value:0%}
 :root{
-  --glass-tint:rgba(255,255,255,.5);
-  --glass-ring:rgba(255,255,255,.6);
-  --glass-sheen:rgba(255,255,255,.42);
+  --glass-tint:rgba(255,250,240,.55);
+  --glass-ring:rgba(255,248,235,.7);
+  --glass-sheen:rgba(255,246,228,.5);
   --glass-blur:18px;
 }
 .glass{position:relative;
@@ -242,7 +275,7 @@ h2.title em{font-style:italic;font-weight:300;color:var(--accent)}
   border-radius:var(--gr,14px);
   -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(165%);
   backdrop-filter:blur(var(--glass-blur)) saturate(165%);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 16px 40px -24px rgba(12,6,12,.55);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 16px 40px -24px rgba(58,32,18,.45);
   /* the sheen position eases toward the pointer instead of snapping */
   transition:--mx .35s var(--ease),--my .35s var(--ease)}
 /* children ride above the sheen layer */
@@ -256,7 +289,7 @@ h2.title em{font-style:italic;font-weight:300;color:var(--accent)}
 .glass:hover{--sheen-o:.92}
 /* no-backdrop-filter fallback: lean opaque so text keeps its contrast */
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
-  .glass{background:var(--glass-solid,rgba(255,255,255,.95))}
+  .glass{background:var(--glass-solid,rgba(255,250,240,.95))}
 }
 
 
@@ -284,9 +317,9 @@ h2.title em{font-style:italic;font-weight:300;color:var(--accent)}
 .promo .sub b{color:var(--ink);font-weight:600}
 
 /* ---- the voucher: a quiet white panel, the offer's anchor ---- */
-.voucher{background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:4px;
+.voucher{background:rgba(255,250,240,.74);border:1px solid var(--line);border-radius:4px;
   -webkit-backdrop-filter:blur(14px) saturate(120%);backdrop-filter:blur(14px) saturate(120%);
-  padding:clamp(1.6rem,2.4vw,2.1rem);box-shadow:0 18px 44px -30px rgba(21,25,30,.3)}
+  padding:clamp(1.6rem,2.4vw,2.1rem);box-shadow:0 18px 44px -30px rgba(58,32,18,.35)}
 .voucher-val{display:flex;align-items:baseline;gap:.55rem;
   padding-bottom:1.15rem;border-bottom:1px solid var(--line)}
 /* deliberately smaller than the headline — the claim leads, the number supports */
@@ -313,7 +346,7 @@ h2.title em{font-style:italic;font-weight:300;color:var(--accent)}
 .menu-head h3{font-family:var(--serif);font-weight:380;font-size:clamp(1.4rem,2.2vw,1.9rem);letter-spacing:-.01em}
 .menu-head span{font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;font-weight:700;color:var(--muted)}
 .menu-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.3rem}
-.mcard{background:rgba(255,255,255,.78);border:1px solid var(--line);border-radius:6px;overflow:hidden;
+.mcard{background:rgba(255,250,241,.8);border:1px solid var(--line);border-radius:6px;overflow:hidden;
   display:flex;flex-direction:column;box-shadow:var(--lift-1);
   transition:transform .5s var(--ease-lux),box-shadow .5s var(--ease-lux),border-color .5s var(--ease-lux)}
 .mcard:hover{transform:translateY(-6px);border-color:var(--line-soft);box-shadow:var(--lift-2)}
@@ -342,10 +375,10 @@ h2.title em{font-style:italic;font-weight:300;color:var(--accent)}
   transform:rotate(var(--tilt,0));box-shadow:var(--lift-2);
   transition:transform .7s var(--ease-lux),box-shadow .7s var(--ease-lux)}
 .piece:hover{transform:rotate(0) translateY(-7px);box-shadow:var(--lift-3)}
-.piece.p1{--tilt:-1deg;background:#fff;border:1px solid var(--line)}
-.piece.p2{--tilt:.8deg;background:#fff;border:1px solid var(--line)}
-.piece.p3{--tilt:-.6deg;background:#fff;border:1px solid var(--line)}
-.piece.p3 figcaption span{color:var(--magenta-ink)}
+.piece.p1{--tilt:-1deg;background:#FFFAF1;border:1px solid var(--line)}
+.piece.p2{--tilt:.8deg;background:#FFFAF1;border:1px solid var(--line)}
+.piece.p3{--tilt:-.6deg;background:#FFFAF1;border:1px solid var(--line)}
+.piece.p3 figcaption span{color:var(--cranberry-ink)}
 .piece .frame{position:relative;border-radius:4px;overflow:hidden}
 /* The source photos are near-square (1.28 / 1.29 / 1.11). A 5:4 frame cropped
    them into wide strips; a square frame shows almost the whole picture.
@@ -359,10 +392,10 @@ h2.title em{font-style:italic;font-weight:300;color:var(--accent)}
   background:linear-gradient(115deg,rgba(255,255,255,.32),transparent 30%,transparent 72%,rgba(255,255,255,.14));pointer-events:none}
 .piece figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-top:1rem;padding:0 .2rem}
 .piece figcaption b{font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.15rem;color:var(--ink)}
-.piece figcaption span{font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;font-weight:700;color:var(--brick-ink)}
-.piece.p2 figcaption span{color:var(--rose-ink)}
-.work-note{margin-top:2.2rem;color:#5A4B52;font-size:.92rem;display:flex;align-items:center;gap:.8em}
-.work-note::before{content:"";width:26px;height:1.5px;background:var(--rose)}
+.piece figcaption span{font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;font-weight:700;color:var(--maple-ink)}
+.piece.p2 figcaption span{color:var(--moss-ink)}
+.work-note{margin-top:2.2rem;color:var(--ink-soft);font-size:.92rem;display:flex;align-items:center;gap:.8em}
+.work-note::before{content:"";width:26px;height:1.5px;background:var(--pumpkin)}
 @media(max-width:980px){.work-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){.work-grid{grid-template-columns:1fr}}
 
@@ -374,12 +407,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:70;display:flex;align-items:cent
   padding:1.05rem 5vw;background:transparent;border-bottom:1px solid transparent;
   transition:background .4s,border-color .4s,padding .4s}
 /* the nav is ink-on-sky throughout — no light/dark inversion to manage */
-nav.scrolled{background:rgba(255,255,255,.62);
+nav.scrolled{background:rgba(253,243,225,.7);
   -webkit-backdrop-filter:blur(20px) saturate(150%);backdrop-filter:blur(20px) saturate(150%);
   border-color:var(--line);padding:.75rem 5vw;
-  box-shadow:0 8px 26px -20px rgba(21,25,30,.3)}
+  box-shadow:0 8px 26px -20px rgba(58,32,18,.35)}
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
-  nav.scrolled{background:rgba(255,255,255,.96)}
+  nav.scrolled{background:rgba(253,243,225,.97)}
 }
 /* the wordmark follows the business card: a small italic "June's" tucked above
    a larger italic "Art Nail", with "Full Service" as the descriptor */
@@ -392,8 +425,8 @@ nav.scrolled{background:rgba(255,255,255,.62);
 .word small{font-family:var(--sans);font-style:normal;font-weight:600;font-size:8.5px;letter-spacing:.34em;
   color:var(--muted);text-transform:uppercase;align-self:center;
   padding-left:.85rem;border-left:1px solid var(--line)}
-footer .word-lock b{color:#fff}
-footer .word-lock em{color:var(--pink)}
+footer .word-lock b{color:#FFF6EA}
+footer .word-lock em{color:var(--harvest)}
 footer .word small{color:rgba(255,255,255,.6);border-left-color:rgba(255,255,255,.2)}
 @media(max-width:620px){.word small{display:none}}
 .nav-links{display:flex;gap:2.3rem;align-items:center;font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;font-weight:600}
@@ -437,13 +470,13 @@ footer .word small{color:rgba(255,255,255,.6);border-left-color:rgba(255,255,255
 /* ticker base of hero */
 /* frosted strip at the hero base — the sky reads through it */
 .ticker{position:relative;z-index:3;border-top:1px solid var(--line);
-  background:rgba(255,255,255,.5);
+  background:rgba(255,248,234,.55);
   -webkit-backdrop-filter:blur(12px) saturate(120%);backdrop-filter:blur(12px) saturate(120%);
   overflow:hidden;padding:1.1rem 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .ticker .row{display:flex;gap:3.2rem;width:max-content;animation:tick 30s linear infinite}
 .ticker span{font-family:var(--serif);font-style:italic;font-weight:340;font-size:1.05rem;letter-spacing:.06em;color:var(--ink-soft);white-space:nowrap;display:inline-flex;align-items:center;gap:3.2rem}
 .ticker b{font-family:var(--sans);font-style:normal;font-weight:600;font-size:.6rem;letter-spacing:.3em;color:var(--accent)}
-.ticker b.c1{color:var(--rose)}.ticker b.c2{color:var(--peach)}.ticker b.c3{color:var(--brick)}
+.ticker b.c1{color:var(--gold)}.ticker b.c2{color:var(--pumpkin)}.ticker b.c3{color:var(--moss)}
 @keyframes tick{to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion: reduce){.hero-scroll .ln::after{animation:none}}
 
@@ -457,7 +490,7 @@ footer .word small{color:rgba(255,255,255,.6);border-left-color:rgba(255,255,255
 @media(max-width:820px){.intro-grid{grid-template-columns:1fr}}
 
 /* ============ services ============ */
-.services{background:rgba(255,252,253,.62);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:clamp(6.5rem,12vw,11rem) 0}
+.services{background:rgba(255,249,238,.5);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:clamp(6.5rem,12vw,11rem) 0}
 .svc-list{margin-top:3.2rem;border-top:1px solid var(--line)}
 /* The indent is a transform on the children, NOT animated padding: padding
    drives layout and reflows the whole list on every hover. The row's content
@@ -519,7 +552,7 @@ footer .word small{color:rgba(255,255,255,.6);border-left-color:rgba(255,255,255
 .hours li{display:flex;justify-content:space-between;gap:1rem;padding:.95rem 0;border-bottom:1px solid var(--line);font-size:.97rem}
 .hours li:last-child{border-bottom:0}
 .hours li b{font-weight:600}
-.hours li.today b::after{content:"· today";font-family:var(--serif);font-style:italic;font-weight:400;color:var(--accent);margin-left:.6em;text-transform:none;letter-spacing:0}
+.hours li.today b::after{content:"· today";font-family:var(--serif);font-style:italic;font-weight:400;color:var(--accent-deep);margin-left:.6em;text-transform:none;letter-spacing:0}
 .hours li span{color:var(--muted)}
 .hours li.today span{color:var(--ink)}
 .visit-small{margin-top:1.6rem;font-size:.88rem;color:var(--muted);max-width:30em;text-wrap:pretty}
@@ -532,7 +565,7 @@ footer{background:var(--night);color:#fff;padding:3rem 0 2.4rem;position:relativ
 .foot .word{font-size:16px}
 .foot-links{display:flex;flex-wrap:wrap;gap:.7rem 2rem;font-size:11px;letter-spacing:.26em;text-transform:uppercase;font-weight:600}
 .foot-links a{display:inline-block;padding:.2rem 0;opacity:.75;transition:opacity .3s,color .3s}
-.foot-links a:hover{opacity:1;color:var(--accent)}
+.foot-links a:hover{opacity:1;color:var(--harvest)}
 .legal{margin-top:2rem;padding-top:1.6rem;border-top:1px solid rgba(255,255,255,.16);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.8rem;color:rgba(255,255,255,.62)}
 
 @media (prefers-reduced-motion: reduce){
@@ -547,6 +580,259 @@ footer{background:var(--night);color:#fff;padding:3rem 0 2.4rem;position:relativ
   nav{padding:.9rem 5vw}
   .word{font-size:16px}.word small{display:none}
 }
+/* =====================================================================
+   HARVEST — the second fall layer.
+   The page now alternates worlds the way a real fall week does: a dark
+   harvest dusk (hero), a pumpkin band, a chalkboard (the Wednesday special),
+   warm paper and flannel through the middle, a notebook page for the hours,
+   and a cold night with pumpkins on the step. Back-to-school details (books,
+   an apple, a pencil for a progress bar, index cards, tape) sit alongside.
+   ===================================================================== */
+:root{
+  --hand:"Homemade Apple","Segoe Script",cursive;   /* the teacher's handwriting */
+  --cream:#FBEBD3; --glow:#F29A4A; --ember:#E0702A;
+  --chalk:#F3EFE6; --chalk-gold:#F5C77E; --chalk-orange:#F5A45C;
+  --board:#1E2A24;
+  --paper:#FFFDF6; --rule:rgba(80,120,180,.24); --margin:rgba(200,60,50,.5);
+  --noise:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .22  0 0 0 0 .12  0 0 0 0 .06  0 0 0 .85 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  --chalkdust:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.6' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+/* paper grain over the whole sky — tactile, like card stock */
+.sky::after{content:"";position:absolute;inset:0;background-image:var(--noise);opacity:.09;mix-blend-mode:multiply}
+
+/* ---------- the pencil: scroll progress, sharpened ---------- */
+.progress{height:7px;opacity:0;transition:opacity .35s var(--ease-lux);
+  background:linear-gradient(180deg,#F9D25C 0 34%,#EDB63B 34% 67%,#D99E2B 67%);
+  box-shadow:0 1px 3px rgba(58,32,18,.25)}
+.progress::before{content:"";position:absolute;left:0;top:0;bottom:0;width:16px;
+  background:linear-gradient(90deg,#E98A8A 0 9px,#CFC8BA 9px 12px,#A9A296 12px 13px,#CFC8BA 13px 16px)}
+.progress::after{content:"";position:absolute;right:-15px;top:0;width:15px;height:7px;
+  background:linear-gradient(90deg,#F0D3A8 0 10px,#3A2A20 10px);
+  clip-path:polygon(0 0,100% 50%,0 100%)}
+
+/* ---------- nav over the dark hero ---------- */
+nav.on-dark .word-lock b{color:var(--cream)}
+nav.on-dark .word-lock em{color:var(--glow)}
+nav.on-dark .word small{color:rgba(251,235,211,.62);border-left-color:rgba(251,235,211,.22)}
+nav.on-dark .nav-links{color:var(--cream)}
+nav.on-dark .nav-links a:not(.callpill):hover{color:var(--glow)}
+nav.on-dark .nav-links a:not(.callpill)::after{background:var(--glow)}
+nav.on-dark .callpill{border-color:rgba(251,235,211,.42)}
+nav.on-dark .callpill:hover{background:var(--glow);border-color:var(--glow);color:#2A1A12}
+nav.on-dark.scrolled{background:rgba(23,10,8,.55);border-color:rgba(251,235,211,.1);
+  box-shadow:0 8px 26px -18px rgba(0,0,0,.6)}
+
+/* ---------- hero: harvest dusk ---------- */
+.hero{isolation:isolate;overflow:hidden;color:var(--cream)}
+.hero-sky{position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(130% 62% at 50% 112%,rgba(240,128,44,.62),rgba(196,76,24,.28) 42%,transparent 72%),
+    linear-gradient(180deg,#140807 0%,#261009 34%,#461a0e 66%,#6E2911 100%)}
+/* a scatter of stars in the upper sky; they breathe, they don't blink */
+.hero-sky::before{content:"";position:absolute;inset:0 0 45% 0;
+  background-image:
+    radial-gradient(1.4px 1.4px at 12% 22%,#FFF3DC 99%,transparent),
+    radial-gradient(1px 1px at 27% 12%,#FFF3DC 99%,transparent),
+    radial-gradient(1.6px 1.6px at 41% 30%,#FFE8C2 99%,transparent),
+    radial-gradient(1px 1px at 58% 9%,#FFF3DC 99%,transparent),
+    radial-gradient(1.2px 1.2px at 66% 34%,#FFF3DC 99%,transparent),
+    radial-gradient(1.5px 1.5px at 84% 44%,#FFE8C2 99%,transparent),
+    radial-gradient(1px 1px at 91% 16%,#FFF3DC 99%,transparent),
+    radial-gradient(1.2px 1.2px at 6% 48%,#FFF3DC 99%,transparent),
+    radial-gradient(1px 1px at 35% 52%,#FFF3DC 99%,transparent),
+    radial-gradient(1.3px 1.3px at 74% 58%,#FFF3DC 99%,transparent);
+  opacity:.75;animation:twinkle 5.5s ease-in-out infinite alternate}
+@keyframes twinkle{from{opacity:.45}to{opacity:.9}}
+.hero-sky::after{content:"";position:absolute;inset:0;background-image:var(--chalkdust);opacity:.6}
+/* the harvest moon — up and to the right, clear of every line of copy */
+.moon{position:absolute;right:8vw;top:17vh;width:clamp(64px,8.5vw,136px);aspect-ratio:1;border-radius:50%;
+  background:
+    radial-gradient(18% 18% at 62% 58%,rgba(214,150,86,.35),transparent 70%),
+    radial-gradient(12% 12% at 34% 64%,rgba(214,150,86,.3),transparent 70%),
+    radial-gradient(9% 9% at 48% 30%,rgba(214,150,86,.28),transparent 70%),
+    radial-gradient(circle at 38% 34%,#FFF3DA,#F8CE92 58%,#EBA663 100%);
+  box-shadow:0 0 50px 14px rgba(248,196,128,.25),0 0 180px 70px rgba(236,120,40,.14)}
+.hero-copy .eyebrow{color:rgba(251,235,211,.74)}
+.hero-copy .eyebrow::before{background:var(--glow)}
+.hero h1{color:var(--cream);position:relative}
+.hero h1 em{color:var(--glow)}
+.hero .stroke path{stroke:var(--glow)}
+.hero .lede{color:rgba(251,235,211,.84)}
+.hero-scroll{color:rgba(251,235,211,.66)}
+.hero-scroll .ln{background:linear-gradient(180deg,rgba(251,235,211,.3),transparent)}
+.hero-scroll .ln::after{background:var(--glow)}
+.hero .btn.gold{background:var(--glow);border-color:var(--glow);color:#2A1A12}
+.hero .btn.gold::before{background:var(--cream)}
+.hero .btn.gold:hover{color:#2A1A12;border-color:var(--cream);box-shadow:0 0 34px -6px rgba(242,154,74,.6)}
+.hero .btn.ghostbone{color:var(--cream);border-color:rgba(251,235,211,.55)}
+.hero .btn.ghostbone::before{background:var(--cream)}
+.hero .btn.ghostbone:hover{color:#2A1A12;border-color:var(--cream)}
+.hero .botanical{--bot:#A7714C}
+/* the handwritten note — chalk-orange, pinned to the headline's shoulder */
+.hand-note{position:absolute;right:-.2em;top:-1.35em;display:inline-flex;align-items:flex-end;gap:.2em;
+  font-family:var(--hand);font-style:normal;font-weight:400;letter-spacing:0;
+  font-size:clamp(.82rem,1.35vw,1.2rem);line-height:1;color:var(--chalk-orange);
+  rotate:-5deg;white-space:nowrap;pointer-events:none;font-variation-settings:normal}
+.hand-note svg{width:2.2em;height:auto;overflow:visible;translate:0 .7em}
+.hand-note path{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:640px){.hand-note{top:-1.7em;right:0;font-size:.78rem}}
+/* hero-only falling leaves: brighter, lit by the ember glow */
+.hero-leaves{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.hero-leaves .leaf{animation-name:leaf-fall-hero}
+@keyframes leaf-fall-hero{from{transform:translate3d(0,-10%,0)}to{transform:translate3d(var(--dx),108svh,0)}}
+.hero-leaves .leaf svg{filter:drop-shadow(0 0 6px rgba(242,154,74,.35))}
+@media (prefers-reduced-motion: reduce){.hero-leaves{display:none}.hero-sky::before{animation:none}}
+
+/* the pumpkin patch at the foot of the hero */
+.patch{position:relative;z-index:2;height:clamp(118px,14vw,200px);margin-top:-1.5rem;pointer-events:none}
+.patch .hill{position:absolute;left:0;right:0;bottom:0;width:100%;height:58%}
+.patch .pk-cluster{position:absolute;left:5vw;bottom:24%;width:clamp(190px,25vw,380px);
+  filter:drop-shadow(0 8px 26px rgba(240,120,40,.35))}
+.patch .books{position:absolute;right:6vw;bottom:26%;width:clamp(104px,11.5vw,176px);
+  filter:drop-shadow(0 8px 20px rgba(0,0,0,.35))}
+.patch .pk-solo{position:absolute;left:44%;bottom:10%;width:clamp(48px,5vw,80px);opacity:.9}
+@media(max-width:640px){
+  .patch .pk-cluster{left:2vw;width:170px}
+  .patch .books{right:3vw;width:92px}
+  .patch .pk-solo{display:none}
+}
+
+/* ---------- the ticker becomes a pumpkin band ---------- */
+.ticker{background:var(--ember);border-top:0;-webkit-mask-image:none;mask-image:none;
+  -webkit-backdrop-filter:none;backdrop-filter:none;
+  box-shadow:inset 0 1px 0 rgba(255,220,170,.35),0 14px 30px -18px rgba(90,30,10,.55)}
+.ticker span{color:#2A1206;font-weight:400}
+.ticker b,.ticker b.c1,.ticker b.c2,.ticker b.c3{color:#5A1E08}
+
+/* ---------- the Wednesday special: a chalkboard ---------- */
+.promo{border:0;overflow:visible}
+.promo-in{--bw:clamp(10px,1.3vw,16px);
+  width:min(1180px,calc(100% - 2rem));margin:clamp(4rem,8vw,6.5rem) auto clamp(5rem,9vw,7.5rem);
+  padding:clamp(2.8rem,6vw,5rem) clamp(1.6rem,5vw,4.5rem);
+  color:var(--chalk);
+  background:
+    radial-gradient(55% 45% at 20% 26%,rgba(255,255,255,.075),transparent 70%),
+    radial-gradient(45% 40% at 80% 76%,rgba(255,255,255,.055),transparent 70%),
+    radial-gradient(30% 22% at 62% 18%,rgba(255,255,255,.04),transparent 70%),
+    var(--chalkdust),var(--board);
+  border:var(--bw) solid #7A4A2A;
+  border-image:linear-gradient(135deg,#A36A3E,#6E3F22 22%,#90593A 46%,#5E341C 70%,#96603A) 1;
+  box-shadow:inset 0 0 70px rgba(0,0,0,.55),inset 0 0 0 1px rgba(0,0,0,.4),
+             0 44px 70px -40px rgba(40,20,10,.75)}
+.promo h2{color:var(--chalk);text-shadow:0 0 1.5px rgba(243,239,230,.45)}
+.promo h2 em{color:var(--chalk-orange)}
+.promo .sub{color:rgba(243,239,230,.82)}
+.promo .sub b{color:var(--chalk)}
+.promo-flag{background:transparent;color:var(--chalk-gold);border-radius:0;
+  font-family:var(--hand);font-size:clamp(.95rem,1.4vw,1.1rem);letter-spacing:0;text-transform:none;font-weight:400;
+  padding:.35em .1em .55em;border-bottom:2px solid rgba(245,199,126,.55)}
+.promo-flag i{background:var(--chalk-gold)}
+/* the chalk ledge, with two sticks of chalk and an eraser */
+.ledge{position:absolute;left:calc(var(--bw) * -1 - 10px);right:calc(var(--bw) * -1 - 10px);
+  bottom:calc(var(--bw) * -1 - 18px);height:18px;border-radius:2px;pointer-events:none;
+  background:linear-gradient(180deg,#A36A3E,#6E3F22);
+  box-shadow:0 12px 20px -10px rgba(40,20,10,.6)}
+.ledge i{position:absolute;bottom:100%;left:14%;width:46px;height:9px;border-radius:5px;background:#F3EFE6;
+  box-shadow:inset -3px -2px 0 rgba(0,0,0,.08)}
+.ledge i+i{left:20%;width:30px;background:var(--chalk-gold);rotate:-5deg}
+.ledge b{position:absolute;bottom:100%;right:14%;width:78px;height:20px;border-radius:3px;
+  background:linear-gradient(180deg,#C9A070 0 52%,#4A4440 52%)}
+/* chalk doodles: drawn with the same self-drawing stroke as the branches */
+.botanical.chalk{--bot:rgba(243,239,230,.72);--bot-o:1;--bot-sw:2.4}
+.c-star{top:1.3rem;right:1.5rem;--bot-w:clamp(32px,3.6vw,52px);rotate:12deg}
+.c-apple{bottom:1.1rem;left:1.3rem;--bot-w:clamp(38px,4.2vw,60px);rotate:-8deg}
+/* the offer, pinned to the board on an index card */
+.voucher{background:
+    linear-gradient(90deg,transparent 2.4rem,var(--margin) 2.4rem,var(--margin) calc(2.4rem + 1.5px),transparent calc(2.4rem + 1.5px)),
+    repeating-linear-gradient(180deg,transparent 0 29px,var(--rule) 29px 30px),
+    var(--paper);
+  border:0;border-radius:2px;-webkit-backdrop-filter:none;backdrop-filter:none;
+  padding-left:clamp(3.1rem,4.2vw,3.5rem);rotate:1.6deg;color:var(--ink);
+  box-shadow:0 26px 44px -22px rgba(0,0,0,.7),0 2px 4px rgba(0,0,0,.2)}
+.voucher.glass::before{inset:auto;top:-13px;left:50%;width:118px;height:28px;translate:-50% 0;rotate:-4deg;
+  border-radius:1px;opacity:1;
+  background:repeating-linear-gradient(45deg,rgba(224,112,42,.78) 0 8px,rgba(250,230,196,.8) 8px 16px);
+  box-shadow:0 1px 2px rgba(0,0,0,.18)}
+.voucher-val{border-bottom-color:var(--rule)}
+@media(max-width:860px){.voucher{rotate:.8deg}}
+
+/* ---------- intro: the signature in the teacher's hand ---------- */
+.intro-side .sig{font-family:var(--hand);font-style:normal;font-size:1rem;line-height:2.1;color:var(--maple-ink)}
+
+/* ---------- services: a flannel shirt, laid flat ---------- */
+.services{position:relative;background:
+    repeating-linear-gradient(90deg,rgba(180,68,31,.06) 0 26px,transparent 26px 52px,rgba(110,63,36,.05) 52px 58px,transparent 58px 104px),
+    repeating-linear-gradient(0deg,rgba(180,68,31,.06) 0 26px,transparent 26px 52px,rgba(110,63,36,.05) 52px 58px,transparent 58px 104px),
+    rgba(255,247,234,.8)}
+.services .wrap{position:relative}
+.svc-pk{position:absolute;right:clamp(1.5rem,6vw,4.5rem);top:-2.6rem;width:clamp(170px,24vw,300px);
+  pointer-events:none;filter:drop-shadow(0 16px 20px rgba(90,40,10,.22))}
+@media(max-width:700px){.svc-pk{width:104px;top:-1rem}}
+/* menu: index cards, taped up at slightly different angles */
+.mcard{background:var(--paper);border:0;overflow:visible;position:relative;rotate:var(--rot,0deg);
+  box-shadow:var(--lift-2);transition:transform .5s var(--ease-lux),box-shadow .5s var(--ease-lux),rotate .6s var(--ease-lux)}
+.mcard:nth-child(1){--rot:-1.2deg}.mcard:nth-child(2){--rot:.9deg}
+.mcard:nth-child(3){--rot:-.6deg}.mcard:nth-child(4){--rot:1.3deg}
+.mcard:hover{rotate:0deg}
+.mcard::before{content:"";position:absolute;top:0;bottom:0;left:.8rem;width:1.5px;background:var(--margin);opacity:.6}
+.mcard .bar{position:absolute;top:-11px;left:50%;width:96px;height:24px;translate:-50% 0;rotate:-3deg;
+  background:color-mix(in srgb,var(--mc) 50%,rgba(250,230,196,.4));opacity:.85;
+  box-shadow:0 1px 2px rgba(0,0,0,.1)}
+.mcard header{padding-top:1.9rem}
+.mcard li{border-top-color:var(--rule)}
+
+/* ---------- gallery: polaroids with plaid tape ---------- */
+.piece::before{content:"";position:absolute;top:-13px;left:50%;width:108px;height:28px;translate:-50% 0;
+  rotate:var(--tape,-3deg);z-index:2;pointer-events:none;
+  background:
+    repeating-linear-gradient(90deg,rgba(180,68,31,.5) 0 7px,rgba(250,230,196,.55) 7px 14px),
+    repeating-linear-gradient(0deg,rgba(110,63,36,.22) 0 7px,transparent 7px 14px);
+  box-shadow:0 1px 2px rgba(0,0,0,.12)}
+.piece.p2{--tape:4deg}.piece.p3{--tape:-1.5deg}
+.piece figcaption b{font-family:var(--hand);font-style:normal;font-weight:400;font-size:.98rem;line-height:1.9}
+
+/* ---------- studio: a pumpkin spice latte on the counter ---------- */
+.studio-copy{position:relative}
+.psl{position:absolute;right:0;bottom:-.4rem;width:clamp(58px,6vw,86px);pointer-events:none;rotate:4deg}
+.psl .steam path{fill:none;stroke:rgba(110,63,36,.42);stroke-width:2.4;stroke-linecap:round;
+  animation:steam 3.4s ease-in-out infinite}
+.psl .steam path:nth-child(2){animation-delay:1.1s}.psl .steam path:nth-child(3){animation-delay:2.2s}
+@keyframes steam{0%{opacity:0;transform:translateY(6px)}40%{opacity:1}100%{opacity:0;transform:translateY(-10px)}}
+@media (prefers-reduced-motion: reduce){.psl .steam path{animation:none;opacity:.7}}
+
+/* ---------- visit: hours on a notebook page ---------- */
+.visit-grid>div{position:relative}
+.hours{--hole:#EBC39A;
+  background:
+    linear-gradient(90deg,transparent 3.3rem,var(--margin) 3.3rem,var(--margin) calc(3.3rem + 1.5px),transparent calc(3.3rem + 1.5px)),
+    radial-gradient(circle at 1.45rem 16%,var(--hole) 0 7px,rgba(58,32,18,.18) 7.5px,transparent 8.5px),
+    radial-gradient(circle at 1.45rem 50%,var(--hole) 0 7px,rgba(58,32,18,.18) 7.5px,transparent 8.5px),
+    radial-gradient(circle at 1.45rem 84%,var(--hole) 0 7px,rgba(58,32,18,.18) 7.5px,transparent 8.5px),
+    var(--paper);
+  border:0;border-radius:3px;-webkit-backdrop-filter:none;backdrop-filter:none;
+  padding:.4rem clamp(1.15rem,2.2vw,1.6rem) .4rem 4.3rem;
+  box-shadow:var(--lift-2);rotate:-.6deg}
+.hours.glass::before{display:none}
+.hours li{border-bottom-color:var(--rule);position:relative}
+.hours li.today::after{content:"";position:absolute;inset:.3rem -.7rem .3rem -.9rem;
+  border:2px solid rgba(186,44,34,.62);border-radius:50%;rotate:-1.4deg;pointer-events:none}
+.hours li.today b::after{font-family:var(--hand);font-style:normal;font-size:.78rem;color:var(--maple-ink)}
+.nb-apple{position:absolute;right:-18px;top:.7rem;width:clamp(48px,5vw,64px);rotate:14deg;z-index:2;pointer-events:none;
+  filter:drop-shadow(0 8px 10px rgba(58,32,18,.3))}
+
+/* ---------- footer: pumpkins on the step ---------- */
+.foot-pk{position:absolute;right:7vw;top:0;translate:0 -84%;width:clamp(128px,15vw,210px);pointer-events:none;
+  filter:drop-shadow(0 10px 14px rgba(40,20,10,.35))}
+@media(max-width:640px){.foot-pk{width:112px;right:4vw}}
+/* branches grow from behind the hill, not buried under the pumpkins */
+.hero .b-hero-l,.hero .b-hero-r{bottom:calc(3.3rem + clamp(118px,14vw,200px) * .42);--bot-o:.95}
+.hero .b-hero-l{left:1vw}.hero .b-hero-r{right:1vw}
+@media(max-width:860px){.hero .b-hero-l,.hero .b-hero-r{--bot-w:84px;--bot-o:.85}}
+/* the moon moves to the upper left, away from the handwritten note */
+.moon{right:auto;left:7vw;top:13vh}
+@media(max-width:640px){.moon{width:42px;top:70%;left:auto;right:8vw}}
+/* the band sits directly on the hill at every width */
+.hero .ticker{margin-top:0}
 </style>
 <!-- anime.js v4 (vendored locally: no CDN, works offline, self-contained deploy) -->
 <script src="assets/anime.min.js"></script>
@@ -566,9 +852,53 @@ footer{background:var(--night);color:#fff;padding:3rem 0 2.4rem;position:relativ
 
 <a class="skip" href="#services">Skip to content</a>
 
-<!-- the whole page's canvas: one sky, one sun, advanced by scroll -->
+<!-- leaf shapes, shared by the branches and the falling leaves. The outline path
+     has no fill of its own, so each leaf takes the colour its <use> inherits. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="lf-maple" viewBox="0 0 100 100">
+      <path d="M50 4 L57 24 L67 18 L64 37 L82 29 L77 42 L94 45 L81 55 L86 64 L66 63 L68 76 L54 68 L52 84 L48 84 L46 68 L32 76 L34 63 L14 64 L19 55 L6 45 L23 42 L18 29 L36 37 L33 18 L43 24 Z"/>
+      <path d="M50 84 L50 99 M50 82 L50 22 M50 60 L25 45 M50 60 L75 45 M50 72 L31 64 M50 72 L69 64" fill="none" stroke="rgba(50,24,10,.28)" stroke-width="2.2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="lf-oak" viewBox="0 0 100 100">
+      <path d="M50 4 C58 8 60 16 56 21 C64 19 70 25 64 31 C72 31 76 39 68 43 C76 45 78 55 68 57 C74 61 72 71 62 69 C62 77 56 83 50 88 C44 83 38 77 38 69 C28 71 26 61 32 57 C22 55 24 45 32 43 C24 39 28 31 36 31 C30 25 36 19 44 21 C40 16 42 8 50 4 Z"/>
+      <path d="M50 88 L50 99 M50 86 L50 14 M50 40 L62 32 M50 40 L38 32 M50 58 L64 50 M50 58 L36 50" fill="none" stroke="rgba(50,24,10,.26)" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="lf-elm" viewBox="0 0 100 100">
+      <path d="M50 4 C72 22 76 54 50 88 C24 54 28 22 50 4 Z"/>
+      <path d="M50 88 L50 99 M50 86 L50 12 M50 36 L62 28 M50 36 L38 28 M50 54 L64 44 M50 54 L36 44 M50 70 L60 62 M50 70 L40 62" fill="none" stroke="rgba(50,24,10,.26)" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    <!-- pumpkins: five overlapping ribs share one radial gradient, so each rib
+         shades itself. --pkf swaps the gradient (orange / white / red / gourd). -->
+    <radialGradient id="pkO" cx="40%" cy="34%" r="78%"><stop offset="0" stop-color="#FFB864"/><stop offset=".48" stop-color="#EE7D24"/><stop offset="1" stop-color="#A9420E"/></radialGradient>
+    <radialGradient id="pkW" cx="40%" cy="34%" r="78%"><stop offset="0" stop-color="#FFF7E8"/><stop offset=".55" stop-color="#EDDDC2"/><stop offset="1" stop-color="#B9A585"/></radialGradient>
+    <radialGradient id="pkR" cx="40%" cy="34%" r="78%"><stop offset="0" stop-color="#F7925A"/><stop offset=".5" stop-color="#D2521F"/><stop offset="1" stop-color="#8A2C0E"/></radialGradient>
+    <radialGradient id="pkG" cx="40%" cy="34%" r="78%"><stop offset="0" stop-color="#C7C46A"/><stop offset=".5" stop-color="#848A36"/><stop offset="1" stop-color="#4A4F1C"/></radialGradient>
+    <radialGradient id="apR" cx="36%" cy="32%" r="80%"><stop offset="0" stop-color="#F0584A"/><stop offset=".55" stop-color="#C12A26"/><stop offset="1" stop-color="#7E1518"/></radialGradient>
+    <symbol id="pk" viewBox="0 0 120 100">
+      <ellipse cx="30" cy="62" rx="24" ry="30" style="fill:var(--pkf,url(#pkO))"/>
+      <ellipse cx="90" cy="62" rx="24" ry="30" style="fill:var(--pkf,url(#pkO))"/>
+      <ellipse cx="44" cy="62" rx="24" ry="34" style="fill:var(--pkf,url(#pkO))"/>
+      <ellipse cx="76" cy="62" rx="24" ry="34" style="fill:var(--pkf,url(#pkO))"/>
+      <ellipse cx="60" cy="62" rx="21" ry="36" style="fill:var(--pkf,url(#pkO))"/>
+      <path d="M40 34 C34 50 34 76 40 92 M80 34 C86 50 86 76 80 92 M60 27 L60 97" fill="none" stroke="rgba(90,30,5,.22)" stroke-width="1.6"/>
+      <path d="M56 30 C55 21 54 14 57 7 C59 4 64 5 65 7 C63 13 63 21 64 30 Z" fill="#5E5A27"/>
+      <path d="M64 13 C74 6 85 10 81 19 C78 24 71 20 75 15" fill="none" stroke="#6F7A3A" stroke-width="2.2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="apple" viewBox="0 0 100 100">
+      <path d="M50 30 C30 20 10 36 16 62 C22 86 40 96 50 88 C60 96 78 86 84 62 C90 36 70 20 50 30 Z" fill="url(#apR)"/>
+      <ellipse cx="34" cy="46" rx="7" ry="12" fill="rgba(255,255,255,.3)" transform="rotate(20 34 46)"/>
+      <path d="M50 31 C50 22 52 15 56 10" fill="none" stroke="#4A2E1A" stroke-width="4" stroke-linecap="round"/>
+      <path d="M54 19 C62 9 74 10 78 13 C71 21 62 24 54 19 Z" fill="#6F7A3A"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- the whole page's canvas: one sky, one low autumn sun, advanced by scroll -->
 <div class="sky" id="sky" aria-hidden="true"></div>
 <div class="sun" id="sun" aria-hidden="true"></div>
+<!-- a few leaves drifting down behind everything; filled in by script -->
+<div class="leaves" id="leaves" aria-hidden="true"></div>
 
 <div class="progress" id="progress"></div>
 
@@ -584,6 +914,9 @@ footer{background:var(--night);color:#fff;padding:3rem 0 2.4rem;position:relativ
 </nav>
 
 <header class="hero" id="top">
+  <!-- harvest dusk: the hero's own sky, stars and moon -->
+  <div class="hero-sky" aria-hidden="true"><div class="moon"></div></div>
+  <div class="hero-leaves" id="heroLeaves" aria-hidden="true"></div>
 
 
   <div class="hero-copy">
@@ -592,6 +925,7 @@ footer{background:var(--night);color:#fff;padding:3rem 0 2.4rem;position:relativ
       <span class="w">A full-service</span>
       <span class="w"><em><span class="stroke" id="heroStroke">nail salon<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M4 14 C 40 6, 90 20, 130 12 S 190 8, 196 12" pathLength="230"/></svg></span></em></span>
       <span class="w">in Lodi.</span>
+      <span class="hand-note" aria-hidden="true"><svg viewBox="0 0 44 30"><path d="M40 4 C30 4 16 8 10 22"/><path d="M5 14 L10 23 L18 18"/></svg>hello, sweater weather</span>
     </h1>
     <p class="lede fade-up">Manicures, pedicures, and waxing.
       Walk in or call ahead — we're open six days a week.</p>
@@ -602,26 +936,63 @@ footer{background:var(--night);color:#fff;padding:3rem 0 2.4rem;position:relativ
     <span class="hero-scroll fade-up">Scroll<span class="ln"></span></span>
   </div>
 
-  <!-- two sprigs framing the fold, kept in the gutters clear of the copy -->
+  <!-- two autumn branches framing the fold, kept in the gutters clear of the copy -->
   <div class="botanical b-hero-l" aria-hidden="true">
-    <svg viewBox="0 0 90 200">
-      <path pathLength="100" d="M45 198 C45 160 40 130 46 100 C52 70 44 40 47 8"/>
-      <path class="d2" pathLength="100" d="M45 158 C30 152 20 138 24 122 C40 126 49 143 45 158"/>
-      <path class="d2" pathLength="100" d="M46 132 C61 126 71 112 67 96 C51 100 42 117 46 132"/>
-      <path class="d3" pathLength="100" d="M45 104 C32 99 24 87 27 74 C40 78 48 92 45 104"/>
-      <path class="d3" pathLength="100" d="M46 80 C59 75 66 63 63 50 C50 54 43 68 46 80"/>
-      <path class="d4" pathLength="100" d="M47 30 C38 21 38 10 47 3 C56 10 56 21 47 30"/>
-      <circle class="d4" pathLength="100" cx="47" cy="34" r="3.2"/>
+    <svg viewBox="0 0 120 220">
+      <path pathLength="100" d="M38 218 C40 180 34 150 46 118 C56 92 52 60 68 12"/>
+      <path class="d2" pathLength="100" d="M43 152 C30 144 22 132 16 118"/>
+      <path class="d2" pathLength="100" d="M49 108 C62 102 74 92 82 80"/>
+      <path class="d2" pathLength="100" d="M55 70 C45 62 39 52 36 40"/>
+      <g transform="translate(42 166) rotate(62)"><use class="lf d2" data-o="0.1" href="#lf-elm" x="-14.5" y="-29" width="29" height="29"/></g>
+      <g transform="translate(46 128) rotate(-64)"><use class="lf d3" data-o="0.04" href="#lf-oak" x="-16" y="-32" width="32" height="32"/></g>
+      <g transform="translate(16 118) rotate(-38)"><use class="lf d3" data-o="0.16" href="#lf-maple" x="-23" y="-46" width="46" height="46"/></g>
+      <g transform="translate(57 92) rotate(56)"><use class="lf d3" data-o="0.02" href="#lf-elm" x="-14.5" y="-29" width="29" height="29"/></g>
+      <g transform="translate(82 80) rotate(38)"><use class="lf d4" data-o="0.12" href="#lf-maple" x="-22" y="-44" width="44" height="44"/></g>
+      <g transform="translate(36 40) rotate(-28)"><use class="lf d4" data-o="0.07" href="#lf-elm" x="-17.5" y="-35" width="35" height="35"/></g>
+      <g transform="translate(68 14) rotate(8)"><use class="lf d5" data-o="0.14" href="#lf-maple" x="-20.5" y="-41" width="41" height="41"/></g>
     </svg>
   </div>
   <div class="botanical b-hero-r" aria-hidden="true">
-    <svg viewBox="0 0 90 200">
-      <path pathLength="100" d="M45 198 C45 162 41 132 47 102 C53 74 45 42 46 10"/>
-      <path class="d2" pathLength="100" d="M45 166 C31 160 22 147 26 132 C41 136 49 152 45 166"/>
-      <path class="d2" pathLength="100" d="M47 140 C61 134 70 121 66 106 C51 110 43 126 47 140"/>
-      <path class="d3" pathLength="100" d="M45 110 C33 105 26 94 29 82 C41 86 48 99 45 110"/>
-      <path class="d4" pathLength="100" d="M46 44 C36 36 35 22 46 14 C57 22 56 36 46 44"/>
-      <path class="d4" pathLength="100" d="M46 44 C46 34 46 24 46 16"/>
+    <svg viewBox="0 0 120 220">
+      <path pathLength="100" d="M40 218 C44 184 38 152 48 124 C58 96 50 66 60 20"/>
+      <path class="d2" pathLength="100" d="M46 142 C60 134 70 122 76 108"/>
+      <path class="d2" pathLength="100" d="M50 100 C38 92 30 80 28 66"/>
+      <path class="d2" pathLength="100" d="M56 62 C66 54 72 44 74 32"/>
+      <g transform="translate(43 172) rotate(-60)"><use class="lf d2" data-o="0.03" href="#lf-elm" x="-14.5" y="-29" width="29" height="29"/></g>
+      <g transform="translate(48 122) rotate(-72)"><use class="lf d3" data-o="0.11" href="#lf-maple" x="-16" y="-32" width="32" height="32"/></g>
+      <g transform="translate(76 108) rotate(48)"><use class="lf d3" data-o="0.06" href="#lf-oak" x="-22" y="-44" width="44" height="44"/></g>
+      <g transform="translate(28 66) rotate(-44)"><use class="lf d4" data-o="0.15" href="#lf-maple" x="-20.5" y="-41" width="41" height="41"/></g>
+      <g transform="translate(74 32) rotate(34)"><use class="lf d4" data-o="0.09" href="#lf-elm" x="-17.5" y="-35" width="35" height="35"/></g>
+      <g transform="translate(60 22) rotate(-4)"><use class="lf d5" data-o="0.01" href="#lf-oak" x="-20.5" y="-41" width="41" height="41"/></g>
+    </svg>
+  </div>
+
+  <!-- the pumpkin patch, and a stack of new schoolbooks with an apple on top -->
+  <div class="patch" aria-hidden="true">
+    <svg class="hill" viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0 70 C200 30 420 58 720 44 C1010 30 1220 66 1440 40 L1440 120 L0 120 Z" fill="#120706"/></svg>
+    <svg class="pk-cluster" viewBox="0 0 380 160">
+      <use href="#lf-maple" x="-6" y="128" width="30" height="30" fill="#C04A26" transform="rotate(-20 9 143)"/>
+      <use href="#pk" x="4" y="60" width="130" height="108" style="--pkf:url(#pkR)"/>
+      <use href="#pk" x="222" y="74" width="112" height="93" style="--pkf:url(#pkW)"/>
+      <use href="#pk" x="318" y="116" width="58" height="48" style="--pkf:url(#pkG)"/>
+      <use href="#pk" x="84" y="8" width="178" height="148"/>
+      <use href="#lf-oak" x="250" y="138" width="26" height="26" fill="#D9A534" transform="rotate(70 263 151)"/>
+    </svg>
+    <svg class="pk-solo" viewBox="0 0 120 100"><use href="#pk" width="120" height="100" style="--pkf:url(#pkR)"/></svg>
+    <svg class="books" viewBox="0 0 180 170">
+      <g transform="translate(150 22) rotate(18)">
+        <rect x="0" y="0" width="10" height="112" fill="#F2B632"/><rect x="3.3" y="0" width="3.4" height="112" fill="#E3A024"/>
+        <rect x="0" y="-9" width="10" height="9" fill="#C9C2B4"/><rect x="0" y="-19" width="10" height="10" rx="3" fill="#E98A8A"/>
+        <polygon points="0,112 10,112 5,128" fill="#F0D3A8"/><polygon points="3.3,122 6.7,122 5,128" fill="#2A2320"/>
+      </g>
+      <rect x="6" y="132" width="150" height="32" rx="3" fill="#8E2C3A"/>
+      <rect x="6" y="139" width="150" height="3" fill="#D9A534"/><rect x="6" y="154" width="150" height="3" fill="#D9A534"/>
+      <rect x="148" y="135" width="6" height="26" fill="#F3E6CC"/>
+      <rect x="18" y="102" width="128" height="30" rx="3" fill="#4B5522"/>
+      <rect x="138" y="105" width="6" height="24" fill="#F3E6CC"/><rect x="30" y="114" width="60" height="5" rx="2" fill="rgba(243,230,204,.6)"/>
+      <g transform="rotate(-3 80 88)"><rect x="12" y="76" width="136" height="26" rx="3" fill="#C98A1E"/>
+      <rect x="140" y="79" width="6" height="20" fill="#F3E6CC"/><rect x="12" y="81" width="136" height="2.5" fill="#6E3F24"/><rect x="12" y="95" width="136" height="2.5" fill="#6E3F24"/></g>
+      <use href="#apple" x="42" y="12" width="68" height="68"/>
     </svg>
   </div>
 
@@ -634,6 +1005,9 @@ footer{background:var(--night);color:#fff;padding:3rem 0 2.4rem;position:relativ
 
 <section class="promo" id="promo">
   <div class="promo-in reveal" id="promoIn">
+    <div class="botanical chalk c-star" aria-hidden="true"><svg viewBox="0 0 100 100"><path pathLength="100" d="M50 8 L61 38 L92 39 L67 58 L76 89 L50 71 L24 89 L33 58 L8 39 L39 38 Z"/></svg></div>
+    <div class="botanical chalk c-apple" aria-hidden="true"><svg viewBox="0 0 100 100"><path pathLength="100" d="M50 30 C30 20 10 36 16 62 C22 86 40 96 50 88 C60 96 78 86 84 62 C90 36 70 20 50 30"/><path class="d2" pathLength="100" d="M50 31 C50 22 52 15 56 10"/><path class="d3" pathLength="100" d="M54 19 C62 9 74 10 78 13 C71 21 62 24 54 19"/></svg></div>
+    <div class="ledge" aria-hidden="true"><i></i><i></i><b></b></div>
     <div class="promo-copy">
       <p class="promo-flag"><i></i>Wednesdays only</p>
       <h2 aria-label="Your pedicure comes with a free 10-minute massage.">
@@ -662,12 +1036,11 @@ footer{background:var(--night);color:#fff;padding:3rem 0 2.4rem;position:relativ
 <section class="intro">
   <div class="botanical b-intro" aria-hidden="true">
     <svg viewBox="0 0 100 100">
-      <path pathLength="100" d="M50 52 C41 36 42 18 50 8 C58 18 59 36 50 52"/>
-      <path class="d2" pathLength="100" d="M50 52 C41 36 42 18 50 8 C58 18 59 36 50 52" transform="rotate(72 50 52)"/>
-      <path class="d2" pathLength="100" d="M50 52 C41 36 42 18 50 8 C58 18 59 36 50 52" transform="rotate(144 50 52)"/>
-      <path class="d3" pathLength="100" d="M50 52 C41 36 42 18 50 8 C58 18 59 36 50 52" transform="rotate(216 50 52)"/>
-      <path class="d3" pathLength="100" d="M50 52 C41 36 42 18 50 8 C58 18 59 36 50 52" transform="rotate(288 50 52)"/>
-      <circle class="d4" pathLength="100" cx="50" cy="52" r="4.6"/>
+      <path class="lf-line" pathLength="100" d="M50 4 L57 24 L67 18 L64 37 L82 29 L77 42 L94 45 L81 55 L86 64 L66 63 L68 76 L54 68 L52 84 L48 84 L46 68 L32 76 L34 63 L14 64 L19 55 L6 45 L23 42 L18 29 L36 37 L33 18 L43 24 Z"/>
+      <path class="d3" pathLength="100" d="M50 84 L50 99"/>
+      <path class="d3" pathLength="100" d="M50 82 L50 22"/>
+      <path class="d4" pathLength="100" d="M50 60 L25 45"/>
+      <path class="d4" pathLength="100" d="M50 60 L75 45"/>
     </svg>
   </div>
   <div class="wrap intro-grid">
@@ -692,22 +1065,28 @@ footer{background:var(--night);color:#fff;padding:3rem 0 2.4rem;position:relativ
     <div class="reveal">
       <h2 class="title"><span class="titlemask"><span>What we <em>do.</em></span></span></h2>
     </div>
+    <svg class="svc-pk" viewBox="0 0 300 150" aria-hidden="true">
+      <use href="#pk" x="150" y="52" width="122" height="100" style="--pkf:url(#pkW)"/>
+      <use href="#pk" x="0" y="20" width="160" height="132"/>
+      <use href="#pk" x="236" y="104" width="58" height="46" style="--pkf:url(#pkG)"/>
+      <use href="#lf-maple" x="120" y="124" width="30" height="30" fill="#B4441F" transform="rotate(35 135 139)"/>
+    </svg>
     <div class="svc-list">
-      <a class="svc reveal" href="tel:+19737784494" style="--a:var(--magenta-ink)">
+      <a class="svc reveal" href="tel:+19737784494" style="--a:var(--cranberry-ink)">
         <span class="no">MANI</span>
         <h3>Manicures</h3>
         <p>Classic, gel, and structured sets with hand-painted art on request — from
           a clean one-color to a full custom design.</p>
         <span class="go">Book by phone</span>
       </a>
-      <a class="svc reveal" href="tel:+19737784494" style="--a:var(--peach-ink)">
+      <a class="svc reveal" href="tel:+19737784494" style="--a:var(--pumpkin-ink)">
         <span class="no">PEDI</span>
         <h3>Pedicures</h3>
         <p>Unhurried spa and gel pedicures with proper callus care and a flawless
           finish — and on Wednesdays, a free 10-minute massage with every one.</p>
         <span class="go">Book by phone</span>
       </a>
-      <a class="svc reveal" href="tel:+19737784494" style="--a:var(--brick-ink)">
+      <a class="svc reveal" href="tel:+19737784494" style="--a:var(--moss-ink)">
         <span class="no">WAX</span>
         <h3>Waxing</h3>
         <p>Brows, lip, face, and body — quick, precise, and as gentle as waxing
@@ -722,7 +1101,7 @@ footer{background:var(--night);color:#fff;padding:3rem 0 2.4rem;position:relativ
         <span>Call for pricing</span>
       </div>
       <div class="menu-grid">
-        <div class="mcard" style="--mc:var(--magenta-ink)">
+        <div class="mcard" style="--mc:var(--cranberry-ink)">
           <span class="bar"></span>
           <header><b>Manicures</b><i>Hands</i></header>
           <ul>
@@ -732,7 +1111,7 @@ footer{background:var(--night);color:#fff;padding:3rem 0 2.4rem;position:relativ
             <li>Paraffin treatment</li>
           </ul>
         </div>
-        <div class="mcard" style="--mc:var(--peach-ink)">
+        <div class="mcard" style="--mc:var(--pumpkin-ink)">
           <span class="bar"></span>
           <header><b>Pedicures</b><i>Feet</i></header>
           <ul>
@@ -742,7 +1121,7 @@ footer{background:var(--night);color:#fff;padding:3rem 0 2.4rem;position:relativ
             <li>Free massage <small>Wed</small></li>
           </ul>
         </div>
-        <div class="mcard" style="--mc:var(--rose-ink)">
+        <div class="mcard" style="--mc:var(--maple-ink)">
           <span class="bar"></span>
           <header><b>Gel &amp; sets</b><i>Lasting</i></header>
           <ul>
@@ -754,7 +1133,7 @@ footer{background:var(--night);color:#fff;padding:3rem 0 2.4rem;position:relativ
             <li>Fill in</li>
           </ul>
         </div>
-        <div class="mcard" style="--mc:var(--brick-ink)">
+        <div class="mcard" style="--mc:var(--moss-ink)">
           <span class="bar"></span>
           <header><b>Waxing</b><i>Face &amp; body</i></header>
           <ul>
@@ -820,6 +1199,14 @@ footer{background:var(--night);color:#fff;padding:3rem 0 2.4rem;position:relativ
       <p>Bring a photo, a rough idea, or nothing at all. We'll help you figure out what
         works and get you out on time.</p>
       <a class="btn line" href="#visit" style="margin-top:.6rem"><span>Plan your visit</span></a>
+      <svg class="psl" viewBox="0 0 80 120" aria-hidden="true">
+        <g class="steam"><path d="M30 22 C24 14 36 10 30 2"/><path d="M42 22 C36 14 48 10 42 2"/><path d="M54 22 C48 14 60 10 54 2"/></g>
+        <path d="M16 36 L20 27 L60 27 L64 36 Z" fill="#E7D6B8"/>
+        <rect x="10" y="35" width="60" height="10" rx="4" fill="#F4E8D2"/>
+        <path d="M13 45 L67 45 L59 116 L21 116 Z" fill="#FFF8EC"/>
+        <path d="M16 64 L64 64 L61 92 L19 92 Z" fill="#B4441F"/>
+        <use href="#lf-maple" x="30" y="66" width="20" height="20" fill="#FBEBD3"/>
+      </svg>
     </div>
   </div>
 </section>
@@ -827,12 +1214,12 @@ footer{background:var(--night);color:#fff;padding:3rem 0 2.4rem;position:relativ
 <section class="visit" id="visit">
   <div class="botanical b-visit" aria-hidden="true">
     <svg viewBox="0 0 90 200">
-      <path pathLength="100" d="M44 198 C44 164 39 134 45 104 C51 76 43 44 46 12"/>
-      <path class="d2" pathLength="100" d="M44 162 C30 156 21 143 25 128 C40 132 48 148 44 162"/>
-      <path class="d2" pathLength="100" d="M46 136 C60 130 69 117 65 102 C50 106 42 122 46 136"/>
-      <path class="d3" pathLength="100" d="M44 106 C32 101 25 90 28 78 C40 82 47 95 44 106"/>
-      <path class="d4" pathLength="100" d="M46 46 C37 38 36 24 46 16 C56 24 55 38 46 46"/>
-      <circle class="d4" pathLength="100" cx="46" cy="30" r="2.8"/>
+      <path pathLength="100" d="M44 198 C44 164 39 134 45 104 C51 76 43 44 46 14"/>
+      <g transform="translate(44 162) rotate(-56)"><use class="lf d2" data-o="0.08" href="#lf-oak" x="-19" y="-38" width="38" height="38"/></g>
+      <g transform="translate(42 132) rotate(58)"><use class="lf d3" data-o="0.02" href="#lf-oak" x="-17.5" y="-35" width="35" height="35"/></g>
+      <g transform="translate(46 98) rotate(-50)"><use class="lf d3" data-o="0.12" href="#lf-elm" x="-16" y="-32" width="32" height="32"/></g>
+      <g transform="translate(47 66) rotate(52)"><use class="lf d4" data-o="0.05" href="#lf-maple" x="-19" y="-38" width="38" height="38"/></g>
+      <g transform="translate(46 16) rotate(0)"><use class="lf d5" data-o="0.1" href="#lf-oak" x="-22" y="-44" width="44" height="44"/></g>
     </svg>
   </div>
   <div class="wrap">
@@ -853,6 +1240,7 @@ footer{background:var(--night);color:#fff;padding:3rem 0 2.4rem;position:relativ
       </div>
       <div class="reveal s2">
         <h3>Hours</h3>
+        <svg class="nb-apple" viewBox="0 0 100 100" aria-hidden="true"><use href="#apple" width="100" height="100"/></svg>
         <ul class="hours glass" id="hours">
           <li data-d="1"><b>Monday</b><span>9:30 AM – 7:00 PM</span></li>
           <li data-d="2"><b>Tuesday</b><span>9:30 AM – 7:00 PM</span></li>
@@ -868,17 +1256,12 @@ footer{background:var(--night);color:#fff;padding:3rem 0 2.4rem;position:relativ
 </section>
 
 <footer>
-  <!-- a small bloom sitting on the night edge — the last mark of the day -->
-  <div class="botanical b-foot" aria-hidden="true">
-    <svg viewBox="0 0 100 100">
-      <path pathLength="100" d="M50 50 C43 37 44 22 50 14 C56 22 57 37 50 50"/>
-      <path class="d2" pathLength="100" d="M50 50 C43 37 44 22 50 14 C56 22 57 37 50 50" transform="rotate(72 50 50)"/>
-      <path class="d2" pathLength="100" d="M50 50 C43 37 44 22 50 14 C56 22 57 37 50 50" transform="rotate(144 50 50)"/>
-      <path class="d3" pathLength="100" d="M50 50 C43 37 44 22 50 14 C56 22 57 37 50 50" transform="rotate(216 50 50)"/>
-      <path class="d3" pathLength="100" d="M50 50 C43 37 44 22 50 14 C56 22 57 37 50 50" transform="rotate(288 50 50)"/>
-      <circle class="d4" pathLength="100" cx="50" cy="50" r="4"/>
-    </svg>
-  </div>
+  <!-- pumpkins set out on the step, where the night begins -->
+  <svg class="foot-pk" viewBox="0 0 220 120" aria-hidden="true">
+    <use href="#pk" x="120" y="36" width="96" height="80" style="--pkf:url(#pkW)"/>
+    <use href="#pk" x="0" y="0" width="140" height="117"/>
+    <use href="#pk" x="96" y="80" width="46" height="38" style="--pkf:url(#pkR)"/>
+  </svg>
   <div class="wrap">
     <div class="foot">
       <span class="word"><span class="word-lock"><em>June's</em><b>Art&nbsp;Nail</b></span><small>Full Service</small></span>
@@ -904,26 +1287,50 @@ footer{background:var(--night);color:#fff;padding:3rem 0 2.4rem;position:relativ
   setTimeout(function(){ var h=document.getElementById("heroStroke"); if(h) h.classList.add("now"); }, 1300);
 
   /* ==========================================================
-     ONE DAY, ONE SCROLL — the continuous story.
-     A single scroll-progress value (0 → 1) drives the sky's colour and the sun's
-     arc. Sunrise low-left at the top of the page, overhead by the middle, setting
-     low-right at the bottom; the footer is night. Because every sky stop stays
-     high-luminance, dark ink text keeps its contrast the whole way down — even
-     directly over the sun (~8.8:1), so the sun can never "interfere with text".
+     ONE SEASON, ONE SCROLL — the continuous story.
+     A single scroll-progress value (0 → 1) drives the sky's colour, the low
+     autumn sun's arc, and the colour of every leaf on the branches. The top of
+     the page is the last warm week of summer; by the bottom the leaves have gone
+     red and brown, and the footer is the first cold night. Every sky stop stays
+     high-luminance, so dark ink keeps its contrast the whole way down.
      ========================================================== */
   var sky = document.getElementById("sky");
   var sun = document.getElementById("sun");
   if(sky && sun){
     /* keyframes of the day: [progress, skyTop, skyBottom, sunColour] */
     /* Sky stops stay high-luminance and the sun stays PALE on purpose: a
-       saturated peach disc drops muted body text over it to ~3.2:1. Pale tints
-       of the brand peach/rose keep it ≥6:1 no matter what the sun passes behind. */
+       saturated amber disc would drop muted body text over it below 4.5:1.
+       Measured worst case (deepest persimmon sky): --muted at 5.86:1. */
     var DAY = [
-      [0.00, [251,226,236], [253,239,233], [255,214,196]],  /* first light  */
-      [0.34, [250,217,230], [253,236,240], [255,228,208]],  /* mid-morning  */
-      [0.62, [248,205,223], [253,224,234], [255,219,192]],  /* afternoon    */
-      [1.00, [244,184,207], [251,211,201], [251,199,172]]   /* golden hour  */
+      [0.00, [252,232,198], [250,219,180], [255,226,176]],  /* late summer  */
+      [0.34, [251,226,188], [249,214,172], [255,220,165]],  /* early fall   */
+      [0.62, [249,218,178], [247,206,165], [255,210,150]],  /* peak colour  */
+      [1.00, [246,204,160], [242,190,146], [252,196,140]]   /* late autumn  */
     ];
+    /* the leaves' own ramp: green → gold → pumpkin → maple red → brown */
+    var SEASON = [
+      [0.00, [142,155,63]], [0.22, [196,163,58]], [0.42, [224,160,48]],
+      [0.60, [219,122,44]], [0.78, [192,74,38]],  [0.90, [154,51,40]],
+      [1.00, [122,66,40]]
+    ];
+    var leafAt = function(t){
+      t = Math.min(1, Math.max(0, t));
+      for(var i=0;i<SEASON.length-1;i++){
+        if(t<=SEASON[i+1][0]){
+          var k=(t-SEASON[i][0])/(SEASON[i+1][0]-SEASON[i][0]), a=SEASON[i][1], b=SEASON[i+1][1];
+          return "rgb("+Math.round(a[0]+(b[0]-a[0])*k)+","+Math.round(a[1]+(b[1]-a[1])*k)+","+Math.round(a[2]+(b[2]-a[2])*k)+")";
+        }
+      }
+      return "rgb(122,66,40)";
+    };
+    /* every branch leaf, with its own offset so a branch turns unevenly */
+    var branchLeaves = [].map.call(document.querySelectorAll(".botanical .lf"), function(el){
+      return {el:el, o:parseFloat(el.getAttribute("data-o"))||0};
+    });
+    /* On load the hero leaves visibly turn from summer green toward gold, so the
+       change of season happens in front of you before you even scroll. Reduced
+       motion skips straight to the settled colour. */
+    var RIPEN = 0.24, ripen = reduce ? RIPEN : 0, lastP = 0;
     var mix = function(a,b,t){
       return "rgb("+Math.round(a[0]+(b[0]-a[0])*t)+","
                    +Math.round(a[1]+(b[1]-a[1])*t)+","
@@ -944,6 +1351,7 @@ footer{background:var(--night);color:#fff;padding:3rem 0 2.4rem;position:relativ
       ticking = false;
       var max = root.scrollHeight - window.innerHeight;
       var p = max>0 ? Math.min(1, Math.max(0, window.scrollY/max)) : 0;
+      lastP = p;
       var c = lerp(p);
       root.style.setProperty("--sky-a", c[0]);
       root.style.setProperty("--sky-b", c[1]);
@@ -953,7 +1361,28 @@ footer{background:var(--night);color:#fff;padding:3rem 0 2.4rem;position:relativ
       var y = 82 - Math.sin(Math.PI*p)*66;
       sun.style.setProperty("--sun-x", x.toFixed(2)+"%");
       sun.style.setProperty("--sun-y", y.toFixed(2)+"vh");
+      paintLeaves();
     };
+    /* scroll carries the rest of the season: the whole ramp is covered by the
+       time the page reaches the footer */
+    var paintLeaves = function(){
+      var base = ripen + lastP*(1-RIPEN);
+      root.style.setProperty("--leaf-now", leafAt(base));
+      for(var i=0;i<branchLeaves.length;i++){
+        branchLeaves[i].el.style.fill = leafAt(base + branchLeaves[i].o);
+      }
+    };
+    if(!reduce){
+      var t0 = null;
+      var ripenStep = function(ts){
+        if(t0===null) t0 = ts;
+        var k = Math.min(1, (ts-t0)/6000);
+        ripen = RIPEN * (1 - Math.pow(1-k, 3));     /* ease-out: it settles, it doesn't stop dead */
+        paintLeaves();
+        if(k<1) requestAnimationFrame(ripenStep);
+      };
+      setTimeout(function(){ requestAnimationFrame(ripenStep); }, 900);
+    }
     dayFrame();
     window.addEventListener("scroll", function(){
       if(!ticking){ ticking = true; requestAnimationFrame(dayFrame); }
@@ -961,6 +1390,36 @@ footer{background:var(--night);color:#fff;padding:3rem 0 2.4rem;position:relativ
     window.addEventListener("resize", dayFrame, {passive:true});
   }
 
+
+  /* ---------- falling leaves ----------
+     A small, slow drift behind the page. Few enough to stay calm (8 on phones,
+     14 on desktop), each with its own speed, sway and size. Negative delays start
+     them mid-fall so the sky is never empty on load. Skipped for reduced motion. */
+  var rnd = function(a,b){ return a + Math.random()*(b-a); };
+  function buildLeaves(layer, n, oMin, oMax){
+    var kinds = ["maple","oak","elm","maple"], html = "";
+    for(var li=0; li<n; li++){
+      var dur = rnd(16,28);
+      html += '<div class="leaf" style="'
+        + '--x:'+ (li/n*100 + rnd(-3,3)).toFixed(1) +'%;'
+        + '--s:'+ rnd(20,40).toFixed(0) +'px;'
+        + '--o:'+ rnd(oMin,oMax).toFixed(2) +';'
+        + '--d:'+ dur.toFixed(1) +'s;'
+        + '--dl:-'+ rnd(0,dur).toFixed(1) +'s;'
+        + '--dx:'+ rnd(-14,10).toFixed(1) +'vw;'
+        + '--sw:'+ rnd(2.8,5.2).toFixed(1) +'s;'
+        + '--amp:'+ rnd(14,34).toFixed(0) +'px;'
+        + '--r:'+ rnd(18,48).toFixed(0) +'deg">'
+        + '<svg viewBox="0 0 100 100"><use href="#lf-'+ kinds[li%kinds.length] +'"/></svg></div>';
+    }
+    layer.innerHTML = html;
+  }
+  var small = window.innerWidth < 700;
+  var leafLayer = document.getElementById("leaves");
+  if(leafLayer && !reduce) buildLeaves(leafLayer, small ? 9 : 16, .4, .62);
+  /* the hero is dark, so its leaves can burn brighter */
+  var heroLeaves = document.getElementById("heroLeaves");
+  if(heroLeaves && !reduce) buildLeaves(heroLeaves, small ? 8 : 14, .7, .95);
 
   /* duplicate ticker content for a seamless loop */
   var row = document.getElementById("tickerRow");
@@ -977,6 +1436,10 @@ footer{background:var(--night);color:#fff;padding:3rem 0 2.4rem;position:relativ
   function chrome(){
     var y = window.scrollY;
     nav.classList.toggle("scrolled", y > 40);
+    /* the nav reads cream while it sits over the dark harvest hero */
+    nav.classList.toggle("on-dark", !!hero && y < hero.offsetHeight - 70);
+    /* the pencil only appears once there is something to measure */
+    prog.style.opacity = y > 40 ? 1 : 0;
     var max = document.documentElement.scrollHeight - window.innerHeight;
     prog.style.width = (max>0 ? (y/max)*100 : 0) + "%";
   }
@@ -1195,9 +1658,9 @@ footer{background:var(--night);color:#fff;padding:3rem 0 2.4rem;position:relativ
 
   /* --- hours: today's row gets a soft gold pulse once --- */
   if(today){
-    animate(today, {backgroundColor:["rgba(185,144,58,0)","rgba(185,144,58,.16)","rgba(185,144,58,0)"],
+    animate(today, {backgroundColor:["rgba(217,119,43,0)","rgba(217,119,43,.16)","rgba(217,119,43,0)"],
       duration:2600, ease:"inOutSine",
-      autoplay: onScroll({target:today, enter:"bottom-=40 top", once:true})});
+      autoplay: anime.onScroll ? anime.onScroll({target:today, enter:"bottom-=40 top", once:true}) : true});
   }
 })();
 </script>
